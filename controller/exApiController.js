@@ -15,7 +15,7 @@ module.exports = {
     }else{
       axios.get(queryURL)
         .then(response => {
-          res.render("quickSearch",{recipeData:response.data.hits});
+          res.render("quickSearch",{layout:'guest', recipeData:response.data.hits});
         })
         .catch(error => {
           console.log(error);
