@@ -1,0 +1,36 @@
+  <ul id="slide-out" class="sidenav">
+     <li><div class="user-view">
+      <div class="background">
+        <img src="/assets/images/chopping.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="/assets/images/board.jpg"></a>
+      <a href="#name"><span class="white-text name" id="loggedUser">John Doe</span></a>
+      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      <a href="index.html" class="waves-effect waves-light btn"><i
+                  class="material-icons left">cloud</i>Logout</a>
+    </li>
+    <li><a href="#!"><i class="material-icons">cloud</i>Search Recipe</a></li>
+    <li><a href="#!">My Recipes</a></li>
+        <li><a class="subheader">Add Recipe</a></li>
+    <li><div class="divider"></div></li>
+    
+    <li><a class="waves-effect" href="#!">Admin Page</a></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, {});
+  });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+   var collapsibleElem = document.querySelector('.collapsible');
+   var collapsibleInstance = M.Collapsible.init(collapsibleElem, {});
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+  </script>

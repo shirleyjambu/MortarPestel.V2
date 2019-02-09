@@ -1,0 +1,29 @@
+{
+  "name": "mortarpestel.v2",
+  "version": "1.0.0",
+  "description": "Project 2 - Our own recipes :)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirleyjambu/MortarPestel.V2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shirleyjambu/MortarPestel.V2/issues"
+  },
+  "homepage": "https://github.com/shirleyjambu/MortarPestel.V2#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.1.0",
+    "jQuery": "^1.7.4",
+    "jsdom": "^13.2.0"
+  }
+}

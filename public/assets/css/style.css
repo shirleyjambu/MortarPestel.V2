@@ -1,0 +1,250 @@
+/* common styles*/
+#homebody {
+  background-image: url("../images/bowl.jpg");
+  background-size: 100%;
+}
+
+.my-container {
+  width: 90%;
+}
+
+h1 {
+  font-family: 'Princess Sofia', cursive;
+  text-shadow: 4px 4px 4px rgb(255, 255, 255);
+  font-size: 80px;
+  color: rgb(43, 54, 35);
+}
+
+#prefBody {
+  background-image: url("../images/chopping.jpg");
+  background-size: 100%;
+}
+
+#searchbyIng {
+  background-color: rgb(236, 233, 233);
+  color: black;
+}
+
+#errorMsg {
+  margin: 10px;
+  text-align: left;
+  color: red;
+}
+
+
+/* Home Page */
+
+
+/* Welcome User */
+#logoutBtn {
+  margin: 5px;
+  float: right;
+  color: whitesmoke;
+  font-size: 20px;
+}
+
+#allergiesSpan {
+  color: red;
+}
+
+#dietSpan {
+  color: red;
+}
+
+#favTitle {
+  font-size: 20px;
+}
+
+.favIcon {
+  color: red;
+}
+
+.chip a {
+  color: red;
+}
+
+#welDiv {
+  background-image: url("../images/bunch.jpg");
+  background-size: 100%;
+  font-family: 'Playfair Display', cursive;
+  font-weight: bold;
+
+}
+
+#welBody {
+  background-color: rgba(238, 233, 226, 0.493);
+
+}
+
+#welHead {
+  background-color: transparent;
+  color: rgb(15, 15, 15);
+}
+
+
+/* Recipes */
+.card-action-right {
+  float: right;
+}
+
+.card__date {
+  background: #08c;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 13px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.card__date__day {
+  display: block;
+  font-size: 14px;
+}
+
+.card__date__month {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+#repBody {
+  background-image: url("../images/boards-brown.jpg");
+  background-size: 100%;
+}
+
+#panelHead {
+  background-color: transparent;
+  background-size: 80%;
+}
+
+#hTag {
+  color: rgb(24, 22, 22);
+  font-family: 'Princess Sofia', cursive;
+  text-shadow: 4px 4px 4px rgb(243, 233, 233);
+  font-size: 80px;
+  padding-left: 10px;
+}
+
+.dropdown-button,
+#search_recipe,
+.dropdown-content {
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+/* Preferences*/
+#prefForm {
+  padding: 25px;
+}
+
+/* Contact */
+
+nav {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.page-footer {
+  background-color: whitesmoke;
+}
+
+.contactBackground {
+  background-color: whitesmoke;
+}
+
+.card {
+  border-radius: 1.5em;
+  /*background-color:rgba(255, 208, 0, 0.274);*/
+  background-color: whitesmoke;
+  color: rgb(43, 54, 35);
+  font-family: 'Playfair Display', cursive;
+  font-weight: bold;
+
+}
+
+main {
+  color: rgb(43, 54, 35);
+  font-family: 'Playfair Display', cursive;
+
+}
+
+/* pref page style */
+#prefForm {
+  padding: 25px;
+}
+
+.favIcon {
+  color: red;
+}
+
+h1 {
+  font-family: 'Princess Sofia', cursive;
+  text-shadow: 4px 4px 4px rgb(255, 255, 255);
+  font-size: 80px;
+}
+
+#pref {
+  background-color: rgba(58, 57, 57, 0.61);
+
+}
+
+.collapsible-header {
+  background-color: rgba(231, 229, 229);
+}
+
+#prefBar {
+  background-color: rgba(116, 113, 113, 0.712);
+  color: whitesmoke;
+  font-size: bold;
+}
+
+#myKitchen {
+  font-family: 'Princess Sofia', cursive;
+  background-color: transparent;
+  background-size: 100%;
+  color: rgb(143, 140, 140);
+  text-shadow: 4px 4px 4px rgb(40, 66, 26);
+  font-size: 75px;
+}
+
+.card-title {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-size: 16px !important;
+  background-color: transparent;
+}
+
+#title {
+  color: rgb(19, 18, 18);
+  font-weight: bold;
+  font-family: 'Handlee', cursive;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
