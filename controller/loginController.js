@@ -3,4 +3,3 @@ module.exports = {
     res.render("userMain",{layout:'user'});
   }
 };
-
