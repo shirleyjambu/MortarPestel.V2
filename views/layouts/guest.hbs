@@ -12,17 +12,13 @@
   <!-- Materialize CSS CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-
-  <!-- Firebase Reference -->
-  
-
   <!-- Your custom styles -->
   <link href="https://fonts.googleapis.com/css?family=Princess Sofia|Playfair+Display:400,700" rel="stylesheet">
   
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body id="homebody">
+<body>
   
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -31,7 +27,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
   <div class="container my-container">
-    {{>header}}
+    <header id="welHead">
+      <div class="card-panel jumbotronStyle" id="welDiv">
+          <a href="index.html">
+              <h1>Mortar & Pestle</h1>
+          </a>
+      </div>
+  </header>
     <main>
     {{{body}}}
     </main>
