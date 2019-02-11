@@ -37,8 +37,9 @@ function setCurrentUserName(){
 function chatBox() {
   var hchat = document.getElementById("cBody");
   if (hchat.style.display === "none") {
-    hchat.style.display = "block";
+      hchat.style.display = "table";
   } else {
-    hchat.style.display = "cBody";
-  }
+    hchat.style.display = "none";
+  } 
 }
+
