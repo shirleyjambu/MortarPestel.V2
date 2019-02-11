@@ -34,11 +34,11 @@ function setCurrentUserName(){
 
 // Hide Chat
 
-function hchat() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+function chatBox() {
+  var hchat = document.getElementById("cBody");
+  if (hchat.style.display === "none") {
+    hchat.style.display = "block";
   } else {
-    x.style.display = "none";
+    hchat.style.display = "cBody";
   }
 }
