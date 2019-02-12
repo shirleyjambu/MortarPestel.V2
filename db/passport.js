@@ -1,6 +1,7 @@
 require('dotenv').config();
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 var db = require("../models");
 
@@ -45,6 +46,19 @@ passport.serializeUser(function(user, cb) {
 passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/auth/google/mortarandpestle",
+  userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+},
+function(accessToken, refreshToken, profile, cb) {
+  User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    return cb(err, user);
+  });
+}
+));
 
 // Exporting our configured passport
 module.exports = passport;
