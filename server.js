@@ -20,17 +20,18 @@ app.engine("hbs", exphbs(
 ));
 
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+//app.use(session({secret: 'max', saveUninitialized:false , resave:false}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.set("view engine","hbs");
 
 app.use(express.static("public"));
-app.use(session({secret: 'max', saveUninitialized:false , resave:false}));
+
 
 app.use("/",routes);
 
-db.sequelize.sync({force:true})
+db.sequelize.sync({force:false})
 .then(()=>{
   app.listen(PORT, function() {
     console.log("MortarPestel.V2 listening on PORT " + PORT);
