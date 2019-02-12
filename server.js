@@ -9,7 +9,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-var passport = require("./config/passport");
+var passport = require("./db/passport");
 
 app.engine("hbs", exphbs(
  {extname:"hbs",
