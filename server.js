@@ -9,7 +9,11 @@ var PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+<<<<<<< HEAD
 var passport = require("./db/passport");
+=======
+var passport = require("./utils/middleware/passport");
+>>>>>>> e3a75538a730673ccba691e11b878829c308bfb7
 
 app.engine("hbs", exphbs(
  {extname:"hbs",
@@ -25,7 +29,7 @@ app.use(passport.session());
 app.set("view engine","hbs");
 
 app.use(express.static("public"));
-app.use(expressSession({secret: 'max', saveUninitialized:false , resave:false}));
+app.use(session({secret: 'max', saveUninitialized:false , resave:false}));
 
 app.use("/",routes);
 
