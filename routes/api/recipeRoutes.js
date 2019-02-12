@@ -1,13 +1,20 @@
 const router = require("express").Router();
-const exApiController = require("./../../controller/exApiController");
 const loginController = require("./../../controller/loginController");
-
-
-router.get("/quickSearch",exApiController.getQuickSearchRecipe);
+const userController = require("./../../controller/userController");
+const validateMiddleware = require('./../../utils/middleware/validateUser');
 
 router
-  .route("/login")
-  .post(loginController.loginUser);
+  .route('/login')
+  .post(
+    validateMiddleware.validateUser, 
+    loginController.loginUser
+    );
 
+router
+.route('/createUser')
+.post(
+  validateMiddleware.validateNewUser, 
+  userController.createUser);
+  
 
 module.exports = router;

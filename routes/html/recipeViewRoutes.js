@@ -1,30 +1,25 @@
 const router = require("express").Router();
 
+const exApiController = require("./../../controller/exApiController");
+
+// Landing
 router.get("/",function(req,res){
   res.render("landing","");
 });
 
+//Logout
 router.get("/logout",function(req,res){
   res.render("landing","");
 });
 
-router.get("/userlanding", function(req, res){
-  res.render("userMain",{layout:'user'});
+//Logout
+router.get("/addUser",function(req,res){
+  res.render("addUser",{layout:'guest'});
 });
 
-router.get("/userRecipes", function(req, res){
-  res.render("userRecipes",{layout:'user'});
-});
 
-router.get("/addRecipe", function(req, res){
-  res.render("addRecipe",{layout:'user'});
-});
-
-router.get("/adminMain", function(req, res){
-  res.render("adminMain",{layout:'user'});
-});
-
-  
+//Quick Search
+router.get("/quickSearch",exApiController.getQuickSearchRecipe);
 
 
 module.exports = router;
