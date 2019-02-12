@@ -1,12 +1,13 @@
 const express = require("express");
 const routes = require("./routes");
 const exphbs = require("express-handlebars");
+const expressSession = require("express-session");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.engine("hbs", exphbs(
   {extname:"hbs",
@@ -17,6 +18,7 @@ app.engine("hbs", exphbs(
 app.set("view engine","hbs");
 
 app.use(express.static("public"));
+app.use(expressSession({secret: 'max', saveUninitialized:false , resave:false}));
 
 app.use("/",routes);
 

@@ -5,7 +5,7 @@
       <!-- Login Card-->
       {{#if errors}}
         {{#each errors}}
-        <span style="color:red;">{{msg}}</span><br>
+        <span style="color:red;">{{this.msg}}</span><br>
         {{/each}}
       {{/if}}
       <form action="/api/login" method="POST">
