@@ -1,0 +1,113 @@
+<h2>Add New Recipe</h2>
+<form id="addRecipe">
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="card-panel teal lighten-2 col s2">
+          <span>Recipe Title</span>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Penne Ala Vodkka" type="text" class="validate">
+        </div>
+      </div>
+
+      <div class="file-field input-field">
+        <div class="btn col s2">
+          <span class="co">Recipe Image</span>
+          <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+
+      <div>
+        <h6>Ingredients</h6>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="input-field col s3">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix">Ingredients</label>
+          </div>
+          <div class="input-field col s3">
+            <i class="material-icons prefix">phone</i>
+            <input id="icon_telephone" type="tel" class="validate">
+            <label for="icon_telephone">Quantity</label>
+          </div>
+          <div class="input-field col s3 myOption">
+            <select>
+              <option value="" disabled selected>Measurement</option>
+              <option value="1">Cups</option>
+              <option value="2">Oz</option>
+              <option value="3">Grams</option>
+            </select>
+            <label>Select Measurement</label>
+          </div>
+          <a class="waves-effect waves-light btn-large col s3">Add more ingredients</a>
+          
+
+        </div>
+        <div>
+         <textarea></textarea>
+        </div>
+        <div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+
+      </div>
+    </form>
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <!-- Initialize Quill editor -->
+    <script>
+      var options = {
+        debug: 'info',
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline'],
+            [{ header: [1, 2, 3, 4, 5, 6] }],
+            ['image', 'video'],
+            ['color']
+          ]
+        },
+        placeholder: 'Write a blog...',
+        readOnly: false,
+        theme: 'snow'
+      };
+      var editor = new Quill('#editor', options);
+    </script>
+    <script type="text/javascript">
+      $("#addRecipe").on("submit", function (event) {
+        event.preventDefault();
+        const newRecipe = {
+          plan: $("addRecipeTitle [name=add]").val().trim()
+        };
+        $.ajax("/addRecipe", {
+          type: "POST",
+          data: newRecipe
+        }).then(
+          function () {
+            console.log("Successfully created plan");
+          }
+        );
+      });
+      $("#recipeText").on("")
+    </script>
+    {{!-- addRecipe.hbs
+    allow the user to add recipes to the database.
+    Form has to be created. --}}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+      });
+      // Or with jQuery
+      $(document).ready(function () {
+        $('select').formSelect();
+      });
+    </script>
+    {{!-- /////////////////////////////////////////////////////// --}}
