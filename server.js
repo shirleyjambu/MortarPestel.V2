@@ -1,16 +1,8 @@
 const express = require("express");
 const routes = require("./routes");
 const exphbs = require("express-handlebars");
-<<<<<<< HEAD
-const session = require("express-session");
-const passport = require("./db/passport");
-// const bcrypt = require("bycrypt");
-// const saltRounds = 10;
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-=======
 
 var session = require("express-session");
->>>>>>> 20ff329c1f06c0c512c9c7cce5b5b2dd74de9a4e
 
 var app = express();
 var PORT = process.env.PORT || 3000;
