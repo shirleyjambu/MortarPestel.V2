@@ -12,6 +12,12 @@ router.get("/logout",function(req,res){
   res.render("landing","");
 });
 
+//Logout
+router.get("/addUser",function(req,res){
+  res.render("addUser",{layout:'guest'});
+});
+
+
 //Quick Search
 router.get("/quickSearch",exApiController.getQuickSearchRecipe);
 
