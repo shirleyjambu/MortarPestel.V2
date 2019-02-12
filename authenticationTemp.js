@@ -7,7 +7,7 @@ app.post("/login", function(req, res){
     else{
       if (foundUser){
         if (foundUser.password === password){
-          res.render(
+          res.render(welcomepage
             // page and options we want available to authorized user
           );
         }

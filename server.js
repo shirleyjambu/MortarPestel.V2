@@ -2,6 +2,7 @@ const express = require("express");
 const routes = require("./routes");
 const exphbs = require("express-handlebars");
 var session = require("express-session");
+var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -29,7 +30,14 @@ app.use(session({secret: 'max', saveUninitialized:false , resave:false}));
 
 app.use("/",routes);
 
-app.listen(PORT, function() {
- console.log("MortarPestel.V2 listening on PORT " + PORT);
+db.sequelize.sync({force:true})
+.then(()=>{
+  app.listen(PORT, function() {
+    console.log("MortarPestel.V2 listening on PORT " + PORT);
+  });
+})
+.catch((err)=>{
+  console.log('Error creating Mortar_Pestel DB');
+  console.log(err);
 });
 
