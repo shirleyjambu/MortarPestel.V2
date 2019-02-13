@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Connect flash
-app.use(flash());
+/*app.use(flash());
 
 // Global variables
 app.use(function(req, res, next) {
@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
   next();
-});
+});*/
 
 app.use(express.static("public"));
 app.use("/",routes);
