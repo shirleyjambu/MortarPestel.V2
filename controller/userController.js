@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator/check');
 var db = require("./../models");
-const passport = require("./../utils/middleware/passport");
 
 const emptyObj =(obj) => {
   for(var key in obj) {

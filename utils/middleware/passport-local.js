@@ -6,12 +6,13 @@ const db = require("../../models");
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
-    usernameField: "email"
+    usernameField: "email",
+    passwordField: "userPassword"
   },
   function (email, password, done) {
-    console.log(email);
+    console.log("Email : " + email);
     // When a user tries to sign in this code runs
-    db.Users.findOne({
+    db.User.findOne({
       where: {
         email: email
       }

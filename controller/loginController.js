@@ -3,13 +3,15 @@ const userController = require('./userController');
 
 module.exports = {
   loginUser : (req, res) => {
-    const errors = validationResult(req);
+    console.log('------------ in Login User ---------');
+    res.render("userMain",{layout:'user'});
+    /*const errors = validationResult(req);
     if(!errors.isEmpty()){
       res.render("landing",{errors:errors.array()});
     }else{
-      userController.findByEmail(req,res);
-      //res.render("userMain",{layout:'user'});
-    }
+      //userController.findByEmail(req,res);
+      res.render("userMain",{layout:'user'});
+    }*/
     
   }
 };
