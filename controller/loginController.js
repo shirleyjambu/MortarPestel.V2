@@ -9,11 +9,8 @@ module.exports = {
     if(!errors.isEmpty()){
       res.render("landing",{errors:errors.array()});
     }else{
-<<<<<<< HEAD
       // if (req.user)
-=======
       //userController.findByEmail(req,res);
->>>>>>> 6266c7e749e12cd83be200cea24b3dde9c575add
       res.render("userMain",{layout:'user'});
     }*/
     
