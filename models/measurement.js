@@ -1,24 +1,26 @@
-var Sequelize = require("sequelize");
-
-var connection = new Sequelize("mortar_pestel", "root", "null", {
-  host:"localhost",
-  dialect: "mysql",
-  operatorsAliases: false,
-});
+const Sequelize =require("sequelize");
 
 module.exports = function(sequelize, DataTypes) {
-  var Measurements = sequelize.define("measurements", {
+  var Measurements = sequelize.define("Measurements", {
     // The measurement cannot be nulll and must be a interger.
     measurement_name: {
-      type: DataTypes.STRING
-  
+      type: DataTypes.STRING, 
+      allowNull: false
     },
-    measurement_amount: {
-      type: DataTypes.INTEGER
+    createdAt:{
+      type:DataTypes.DATE,
+      allowNull : true,
+      defaultValue: Sequelize.NOW
+    },
+    updatedAt:{
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: Sequelize.NOW,
     }
     
+  },
+  {
+    timestamps: true
   });
   return Measurements;
 };
-
-connection.sync();

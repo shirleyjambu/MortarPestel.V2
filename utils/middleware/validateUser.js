@@ -11,3 +11,8 @@ module.exports.validateNewUser = [
   check('email').isEmail().withMessage('Email not valid.'),
   check('password').isLength({ min: 8 }).withMessage('Password should be atleast 8 characters.'),
 ];
+
+module.exports.validateMeasurements = [
+  check('measurement').isLength({ min: 1 }).withMessage('Measurement cannot be empty.'),
+  
+];
