@@ -13,11 +13,13 @@ router
   })
   .post(
     validateMiddleware.validateUser,
-    passport.authenticate('local', {
+    loginController.loginUser,
+    (req, res, next) => passport.authenticate('local', {
       successRedirect: '/user/userlanding',
-      failureRedirect: '/failure'
-    }),
-    loginController.loginUser);
+      failureRedirect: '/',
+      failureFlash: true
+    })(req, res, next));
+    
 
 router
 .route('/createUser')
@@ -42,5 +44,6 @@ router
     validateMiddleware.validateRecipe,
     recipeController.addRecipe);
 
+    
 
 module.exports = router;
