@@ -28,6 +28,7 @@
     "handlebars": "^4.1.0",
     "jQuery": "^1.7.4",
     "jsdom": "^13.2.0",
+    "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

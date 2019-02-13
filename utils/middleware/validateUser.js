@@ -11,3 +11,8 @@ module.exports.validateNewUser = [
   check('email').isEmail().withMessage('Email not valid.'),
   check('password').isLength({ min: 8 }).withMessage('Password should be atleast 8 characters.'),
 ];
+
+module.exports.validateRecipe = [
+  check('recipe_name').isLength({min:1}).withMessage('Enter recipe name'),
+  check('recipe_instruction').isLength({ min: 1 }).withMessage('Enter recipe instruction'),
+];
