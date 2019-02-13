@@ -5,21 +5,24 @@ var db = require("./../models");
 
 module.exports = {
   addRecipe: (req, res) => {
+    console.log('-------- in add recipe ------------');
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('-------- Errors ------------');
       res.render("addRecipe", {
         layout: 'user',
         errors: errors.array()
       });
     } else {
 
-      let recipe = {
-        recipe_name: req.body.recipe_name,
-        recipe_instruction: req.body.recipe_instruction
-      };
+      let recipe = req.body;
+
+      console.log('----------- Add REcipe --------------');
+      console.log(recipe);
 
       db.Recipe.create(recipe).then(function (dbRecipe) {
-        res.render("userRecipes",{layout:'user'});
+        console.log('RenderBack to userRecipes');
+        res.send("userRecipes");
       });
     }
   }
