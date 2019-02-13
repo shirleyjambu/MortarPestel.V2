@@ -1,8 +1,15 @@
 
 <h2>Add New Recipe</h2>
-<form action= "/api/addRecipe" method= "POST" id="addRecipe">
-   <div class="row">
-   
+<div class="row">
+    <div>
+  {{#if errors}}
+    {{#each errors}}
+    <span style="color:red;">{{this.msg}}</span><br>
+    {{/each}}
+  {{/if}}
+</div>
+<form id="addRecipe">
+    
      <div class="row">
        <div class="input-field col s6">
          <label for="recipe_name"></label>
@@ -47,7 +54,7 @@
            <i class="material-icons prefix">add_circle</i>
      </div>
      <div class="col s8">
-       <div id="editor" name ="recipe_instruction" style="height:100px;">
+       <div id="editor" name="recipe_instruction" style="height:100px;">
        </div>
      </div>
      <div class="col s6">
@@ -78,25 +85,6 @@
 };
 var editor = new Quill('#editor', options);
 </script>
-<script type="text/javascript">
- $("#addRecipe").on("submit", function (event) {
-   event.preventDefault();
-   const newRecipe = {
-     plan: $("addRecipeTitle [name=add]").val().trim()
-   };
-   $.ajax("/addRecipe", {
-     type: "POST",
-     data: newRecipe
-   }).then(
-     function () {
-       console.log("Successfully created plan");
-     }
-   );
- });
- $("#recipeText").on("")
-</script>
-
-
 
 <script>
  document.addEventListener('DOMContentLoaded', function () {
@@ -108,3 +96,4 @@ var editor = new Quill('#editor', options);
    $('select').formSelect();
  });
 </script>
+<script src="/assets/js/addRecipe.js"></script>

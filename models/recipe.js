@@ -16,6 +16,12 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },recipe_html: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     createdAt: {
       type: DataTypes.DATE,
