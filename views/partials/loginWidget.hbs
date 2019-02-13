@@ -2,11 +2,15 @@
   <div class="card Panel">
     <div class="card-content">
       <div>
-        <span class="card-title">Login For More</span>
+        <span class="card-title">Create an account or Login</span>
         <!-- Login Card-->
         <!--Successful Login -->
         {{#if userCreated}}
           <span style="color:green;">{{userCreated}}</span><br>
+         {{/if}}
+         <!-- User Not Found -->
+         {{#if userNotFound}}
+          <span style="color:red;">{{userNotFound}}</span><br>
          {{/if}}
         <!--Errors-->
         {{#if errors}}
@@ -16,19 +20,19 @@
         {{/if}}
         <form action="/api/login" method="POST">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter Name">
+            <label for="name">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Enter password">
           </div>
-          <input type="submit">
+          <input type="submit"></input>
         </form>
       </div>
       <!-- New User -->
       <div>
-        <a href="/addUser"><button id="new_user" class="waves-effect">New User</button></a>
+        <a href="/addUser"><button id="new_user" class="waves-effect">Register</button></a>
       </div>  
     </div>
   </div>
