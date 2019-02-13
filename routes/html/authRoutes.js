@@ -1,12 +1,12 @@
 const router = require('express').Router();
+const recipeController = require("./../../controller/recipeController");
 
 router.get("/userlanding", function(req, res){
   res.render("userMain",{layout:'user'});
 });
 
-router.get("/userRecipes", function(req, res){
-  res.render("userRecipes",{layout:'user'});
-});
+router.get("/userRecipes",recipeController.getAllRecipes);
+
 
 router.get("/addRecipe", function(req, res){
   res.render("addRecipe",{layout:'user'});

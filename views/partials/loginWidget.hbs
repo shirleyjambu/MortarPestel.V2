@@ -4,6 +4,9 @@
       <div>
         <span class="card-title">Create an account or Login</span>
         <!-- Login Card-->
+        {{#if error.msg}}
+        {{ error.msg }}
+        {{/if}}
         <!--Successful Login -->
         {{#if userCreated}}
           <span style="color:green;">{{userCreated}}</span><br>

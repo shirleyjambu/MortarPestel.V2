@@ -15,7 +15,8 @@ router
     validateMiddleware.validateUser,
     passport.authenticate('local', {
       successRedirect: '/user/userlanding',
-      failureRedirect: '/failure'
+      failureRedirect: '/',
+      failureFlash: true
     }),
     loginController.loginUser);
 
@@ -42,5 +43,6 @@ router
     validateMiddleware.validateRecipe,
     recipeController.addRecipe);
 
+    
 
 module.exports = router;
