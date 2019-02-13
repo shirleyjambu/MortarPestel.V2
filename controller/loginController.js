@@ -1,18 +1,16 @@
 const { validationResult } = require('express-validator/check');
-const userController = require('./userController');
 
 module.exports = {
-  loginUser : (req, res) => {
+  loginUser : (req, res, next) => {
     console.log('------------ in Login User ---------');
-    res.render("userMain",{layout:'user'});
-    /*const errors = validationResult(req);
+   
+    const errors = validationResult(req);
     if(!errors.isEmpty()){
       res.render("landing",{errors:errors.array()});
     }else{
-      // if (req.user)
-      //userController.findByEmail(req,res);
-      res.render("userMain",{layout:'user'});
-    }*/
+      //res.render("userMain",{layout:'user'});
+      next();
+    }
     
   }
 };
