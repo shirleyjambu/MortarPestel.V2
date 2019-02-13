@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS mortarpestel_db;
-CREATE DATABASE mortarpestel_db;
+CREATE DATABASE mortar_pestel;
+use mortar_pestel;
