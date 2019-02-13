@@ -9,6 +9,7 @@ module.exports = {
     if(!errors.isEmpty()){
       res.render("landing",{errors:errors.array()});
     }else{
+      // if (req.user)
       //userController.findByEmail(req,res);
       res.render("userMain",{layout:'user'});
     }*/
