@@ -3,24 +3,32 @@ const loginController = require("./../../controller/loginController");
 const userController = require("./../../controller/userController");
 const validateMiddleware = require('./../../utils/middleware/validateUser');
 const passport = require('./../../utils/middleware/passport-local');
+const recipeController = require("./../../controller/recipeController");
 
 router
   .route('/login')
-  .get((req, res)=>{res.send('Login Get')})
+  .get((req, res) => {
+    res.send('Login Get')
+  })
   .post(
     validateMiddleware.validateUser,
-    passport.authenticate('local',{ 
+    passport.authenticate('local', {
       successRedirect: '/user/userlanding',
-      failureRedirect: '/failure'  
-    }), 
-    loginController.loginUser
-    );
+      failureRedirect: '/failure'
+    }),
+    loginController.loginUser);
 
 router
-.route('/createUser')
-.post(
-  validateMiddleware.validateNewUser, 
-  userController.createUser);
-  
+  .route('/createUser')
+  .post(
+    validateMiddleware.validateNewUser,
+    userController.createUser);
+
+router
+  .route('/addRecipe')
+  .post(
+    validateMiddleware.validateRecipe,
+    recipeController.addRecipe);
+
 
 module.exports = router;
