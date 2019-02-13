@@ -15,8 +15,8 @@ router
     validateMiddleware.validateUser,
     passport.authenticate('local', {
       successRedirect: '/user/userlanding',
-      failureRedirect: '/',
-      failureFlash: true
+      failureRedirect: '/'/*,
+      failureFlash: true*/
     }),
     loginController.loginUser);
 
