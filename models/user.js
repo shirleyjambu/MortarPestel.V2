@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue : 'user'
     },
-    createdAt:{
+     createdAt:{
       type:DataTypes.DATE,
       allowNull : true,
       defaultValue: Sequelize.NOW
@@ -45,7 +45,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   },{
     timestamps: true
-  });
+  });  
+ 
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
@@ -60,6 +61,3 @@ module.exports = function(sequelize, DataTypes) {
   
   return User;
 };
-
-
-  
