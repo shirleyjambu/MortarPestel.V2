@@ -1,3 +1,22 @@
-adminMain.hbs
+<h1>Admin Page</h1>
 
-Will provide the admin to add backend tabledata.
+<div>
+  {{#if measurementCreated}}
+  <span style="color:green;">{{measurementCreated}}</span><br>
+  {{/if}}
+  {{#if errors}}
+  {{#each errors}}
+  <span style="color:red;">{{this.msg}}</span><br>
+  {{/each}}
+  {{/if}}
+</div>
+<div class="row">
+  <form action="/api/addMeasurements" method="POST" class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Enter Measurement" id="measurement" name="measurement" type="text" class="validate">
+        <label for="measurement">Measurement</label>
+      </div>
+      <button type="submit">Submit</button>
+  </form>
+</div>
