@@ -5,8 +5,10 @@ var db = require("./../models");
 
 module.exports = {
   addRecipe: (req, res) => {
+    console.log('-------- in add recipe ------------');
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('-------- Errors ------------');
       res.render("addRecipe", {
         layout: 'user',
         errors: errors.array()
@@ -14,7 +16,7 @@ module.exports = {
     } else {
       let recipe = req.body;
       db.Recipe.create(recipe).then(function (dbRecipe) {
-        res.send("userRecipes");
+        console.log('RenderBack to userRecipes');
       });
     }
   },
