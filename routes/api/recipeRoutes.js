@@ -30,7 +30,7 @@ router
   .post(
     validateMiddleware.validateMeasurements, 
     adminController.addMeasurements);
-  
+  router
   .route('/createUser')
   .post(
     validateMiddleware.validateNewUser,
