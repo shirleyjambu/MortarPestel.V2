@@ -13,10 +13,57 @@
 <div class="row">
   <form action="/api/addMeasurements" method="POST" class="col s12">
     <div class="row">
-      <div class="input-field col s6">
+      <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Add New</a>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li>Measurements</li>
+        <li>Cuisine</li>
+        <li>User</li>
+      </ul>
+      
+      <div class="input-field col s8  float right">
         <input placeholder="Enter Measurement" id="measurement" name="measurement" type="text" class="validate">
-        <label for="measurement">Measurement</label>
+        <label for="measurement"></label>
+        <button type="submit">Submit</button>
       </div>
-      <button type="submit">Submit</button>
+      
   </form>
 </div>
+<br>
+<br>
+
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header">Measurements</div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+  <li>
+    <div class="collapsible-header">Cuisine</div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+  <li>
+    <div class="collapsible-header">User</div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+</ul>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $('.dropdown-trigger').dropdown();
+        
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function () {
+    $('.collapsible').collapsible();
+  });
+</script>
