@@ -9,6 +9,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// ssn = req.session;
+
 var database = firebase.database();
 var userName = localStorage.getItem("mpUserName");
 var favsRef = database.ref("/" + userName + "/favs");
