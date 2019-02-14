@@ -24,6 +24,14 @@ $(document).ready(function(){
     console.log(justHtml);
 
     /* End code for quill */
+    let newIngredient={
+      ingredient_name: $("#ingredient_name").val(),
+      ingredient_quantity: $("#ingredient_quantity").val(),
+      measurementType: $("measurementType").val()
+    };
+
+    console.log(newIngredient);
+
     let newRecipe = {
       recipe_name: $("#recipe_name").val().trim(),
       recipe_instruction : content,
@@ -34,6 +42,7 @@ $(document).ready(function(){
       type: "POST",
       data: newRecipe
     }).then((redirectUrl) => {
+      
         location.replace('/user/userRecipes');
     }
     );
