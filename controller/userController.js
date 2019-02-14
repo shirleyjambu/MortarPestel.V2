@@ -39,9 +39,8 @@ module.exports = {
                     });  
 
             }else{
-              // authenticate
-            console.log("Email already in use please sign in with the password associated with that account.");
-            res.redirect("/");
+              console.log("Email already in use please sign in with the password associated with that account.");
+              res.render("addUser",{layout:'guest',userExisting:'Email already in use please sign in with the password associated with that account.'});
             }
         }
       )
