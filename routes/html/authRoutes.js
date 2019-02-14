@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const recipeController = require("./../../controller/recipeController");
+const authorize = require("./../../utils/middleware/isAuthenticated");
+
+router.use(authorize);
 
 router.get("/userlanding", function(req, res){
   res.render("userMain",{layout:'user'});
