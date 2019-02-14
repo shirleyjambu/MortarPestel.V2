@@ -7,7 +7,8 @@ router.get("/",function(req,res){
 });
 
 //Logout
-router.get("/logout",function(req,res){
+router.get("/logout",function(req, res){
+  req.logout();
   res.render("landing","");
 });
 

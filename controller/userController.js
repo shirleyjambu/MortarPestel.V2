@@ -39,9 +39,8 @@ module.exports = {
                     });  
 
             }else{
-              // authenticate
-            console.log("Email already in use please sign in with the password associated with that account.");
-            res.redirect("/");
+              console.log("Email already in use please sign in with the password associated with that account.");
+              res.render("addUser",{layout:'guest',userExisting:'Email already in use please sign in with the password associated with that account.'});
             }
         }
       )
@@ -68,15 +67,7 @@ module.exports = {
         include: [db.Posts]*/
       })
       .then( (dbUsers) => {
-            if(emptyObj(dbUsers)){
-                    // No user found
-              console.log("User is not found in the DB");
-              res.render("landing",{userNotFound:'User Not Found'});
-            }else{
-              // authenticate
-            console.log("User has to be authenticated");
-            res.redirect("/user/userlanding");
-            }
+          res.send(dbUsers);
         }
       )
       .catch((err) => {
