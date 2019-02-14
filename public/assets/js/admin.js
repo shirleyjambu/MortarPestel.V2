@@ -1,7 +1,13 @@
  $(document).ready(function () {
    // Intialize materialize controls
-   $('.collapsible').collapsible();
-   $('select').formSelect();
+  //  $('.collapsible').collapsible();
+  //  $('select').formSelect();
+
+ 
+    $('.tabs').tabs();
+    $('select').formSelect();
+
+       
 
    $("#measurement").on("click",function(){
      $.ajax(
