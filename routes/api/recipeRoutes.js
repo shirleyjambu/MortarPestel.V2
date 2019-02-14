@@ -28,21 +28,24 @@ router
   userController.createUser);
 
   router
-  .route('/addMeasurements')
-  .post(
-    validateMiddleware.validateMeasurements, 
-    adminController.addMeasurements);
-  router
   .route('/createUser')
   .post(
     validateMiddleware.validateNewUser,
     userController.createUser);
 
-router
-  .route('/addMeasurements')
+ router
+  .route('/addItems')
   .post(
-    validateMiddleware.validateMeasurements,
-    adminController.addMeasurements);
+    //validateMiddleware.validateItems,
+    adminController.addItems);
+
+router
+.route('/getAllMeasurements')
+.get(adminController.getAllMeasurements);
+    
+router
+.route('/getAllCuisines')
+.get(adminController.getAllCuisines);  
 
 router
   .route('/addRecipe')

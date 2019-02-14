@@ -1,7 +1,7 @@
 <h1>Admin Page</h1>
 <div>
- {{#if measurementCreated}}
- <span style="color:green;">{{measurementCreated}}</span><br>
+ {{#if itemCreated}}
+ <span style="color:green;">{{itemCreated}}</span><br>
  {{/if}}
  {{#if errors}}
  {{#each errors}}
@@ -11,9 +11,10 @@
 </div>
 
 <div style="width: 50%">
- <form action="/api/addMeasurements" method="POST">
+ <form action="/api/addItems" method="POST">
+ 
       <div class="input-field col s3 myOption">
-      <select>
+      <select name="adminChoice" id="adminChoice">
         <option value="" disabled selected>Activity</option>
         <option value="1">Measurement</option>
         <option value="2">Cuisine</option>
@@ -24,8 +25,8 @@
 
    <div class="row">
      <div class="input-field col s8  float right">
-       <input placeholder="Enter Measurement" id="measurement" name="measurement" type="text" class="validate">
-       <label for="measurement"></label>
+       <input placeholder="Enter Value" id="item" name="item" type="text" class="validate">
+       <label for="Add Item"></label>
        <button type="submit">Submit</button>
      </div>
   </div>
@@ -36,40 +37,24 @@
 
 <ul class="collapsible">
  <li>
-   <div class="collapsible-header">Measurements</div>
-   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+   <div id="measurement" class="collapsible-header">Measurements</div>
+   <div class="collapsible-body">
+     {{#each itemData}}
+     <span>{{this.measurement_name}}</span>
+     {{/each}}
+   </div>
  </li>
  <li>
    <div class="collapsible-header">Cuisine</div>
-   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+   <div class="collapsible-body">
+     {{#each itemData}}
+     <span>{{this.cuisine_name}}</span>
+     {{/each}}
+   </div>
  </li>
  <li>
    <div class="collapsible-header">User</div>
    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
  </li>
 </ul>
-
-<script>
-  
- document.addEventListener('DOMContentLoaded', function () {
-   var elems = document.querySelectorAll('.collapsible');
-   var instances = M.Collapsible.init(elems, options);
- });
-
- // Or with jQuery
-
- $(document).ready(function () {
-   $('.collapsible').collapsible();
- });
-
-
- /*document.addEventListener('DOMContentLoaded', function () {
-   var elems = document.querySelectorAll('select');
-   var instances = M.FormSelect.init(elems, options);
- });*/
- // Or with jQuery
- $(document).ready(function () {
-   $('select').formSelect();
- });
-
-</script>
+<script src="/assets/js/admin.js"></script>
