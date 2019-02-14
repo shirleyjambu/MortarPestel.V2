@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 app.use(express.static("public"));
 app.use("/",routes);
 
-db.sequelize.sync({force:false})
+db.sequelize.sync({force:true})
 .then(()=>{
   app.listen(PORT, function() {
     console.log("MortarPestel.V2 listening on PORT " + PORT);
