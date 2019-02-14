@@ -1,70 +1,75 @@
 <h1>Admin Page</h1>
-
 <div>
-  {{#if measurementCreated}}
-  <span style="color:green;">{{measurementCreated}}</span><br>
-  {{/if}}
-  {{#if errors}}
-  {{#each errors}}
-  <span style="color:red;">{{this.msg}}</span><br>
-  {{/each}}
-  {{/if}}
+ {{#if measurementCreated}}
+ <span style="color:green;">{{measurementCreated}}</span><br>
+ {{/if}}
+ {{#if errors}}
+ {{#each errors}}
+ <span style="color:red;">{{this.msg}}</span><br>
+ {{/each}}
+ {{/if}}
 </div>
-<div class="row">
-  <form action="/api/addMeasurements" method="POST" class="col s12">
-    <div class="row">
-      <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Add New</a>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li>Measurements</li>
-        <li>Cuisine</li>
-        <li>User</li>
-      </ul>
-      
-      <div class="input-field col s8  float right">
-        <input placeholder="Enter Measurement" id="measurement" name="measurement" type="text" class="validate">
-        <label for="measurement"></label>
-        <button type="submit">Submit</button>
-      </div>
-      
-  </form>
+
+<div style="width: 50%">
+ <form action="/api/addMeasurements" method="POST">
+      <div class="input-field col s3 myOption">
+      <select>
+        <option value="" disabled selected>Activity</option>
+        <option value="1">Measurement</option>
+        <option value="2">Cuisine</option>
+        <option value="3">Change User Type</option>
+      </select>
+      <label>Select Activity</label>
+    </div>
+
+   <div class="row">
+     <div class="input-field col s8  float right">
+       <input placeholder="Enter Measurement" id="measurement" name="measurement" type="text" class="validate">
+       <label for="measurement"></label>
+       <button type="submit">Submit</button>
+     </div>
+  </div>
+ </form>
 </div>
 <br>
 <br>
 
 <ul class="collapsible">
-  <li>
-    <div class="collapsible-header">Measurements</div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
-  <li>
-    <div class="collapsible-header">Cuisine</div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
-  <li>
-    <div class="collapsible-header">User</div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
+ <li>
+   <div class="collapsible-header">Measurements</div>
+   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+ </li>
+ <li>
+   <div class="collapsible-header">Cuisine</div>
+   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+ </li>
+ <li>
+   <div class="collapsible-header">User</div>
+   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+ </li>
 </ul>
 
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
+  
+ document.addEventListener('DOMContentLoaded', function () {
+   var elems = document.querySelectorAll('.collapsible');
+   var instances = M.Collapsible.init(elems, options);
+ });
 
-  // Or with jQuery
+ // Or with jQuery
 
-  $('.dropdown-trigger').dropdown();
-        
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, options);
-  });
+ $(document).ready(function () {
+   $('.collapsible').collapsible();
+ });
 
-  // Or with jQuery
 
-  $(document).ready(function () {
-    $('.collapsible').collapsible();
-  });
+ /*document.addEventListener('DOMContentLoaded', function () {
+   var elems = document.querySelectorAll('select');
+   var instances = M.FormSelect.init(elems, options);
+ });*/
+ // Or with jQuery
+ $(document).ready(function () {
+   $('select').formSelect();
+ });
+
 </script>
-

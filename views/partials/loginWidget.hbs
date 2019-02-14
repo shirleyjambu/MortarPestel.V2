@@ -4,21 +4,21 @@
       <div>
         <span class="card-title">Create an account or Login</span>
         <!-- Login Card-->
-        {{#if error.msg}}
-        {{ error.msg }}
+        {{#if error_msg}}
+            <p><strong>FLASH!</strong> {{ error_msg }}</p>
         {{/if}}
         <!--Successful Login -->
         {{#if userCreated}}
-          <span style="color:green;">{{userCreated}}</span><br>
+            <body onload="M.toast({html: '{{userCreated}}'})"></body>
          {{/if}}
          <!-- User Not Found -->
          {{#if userNotFound}}
-          <span style="color:red;">{{userNotFound}}</span><br>
+             <body onload="M.toast({html: '{{userNotFound}}'})"></body>
          {{/if}}
         <!--Errors-->
         {{#if errors}}
           {{#each errors}}
-          <span style="color:red;">{{this.msg}}</span><br>
+              <span style="color:red;">{{this.msg}}</span><br>
           {{/each}}
         {{/if}}
         <form action="/api/login" method="POST">
@@ -40,4 +40,3 @@
     </div>
   </div>
 </div>
-<script src="/assets/js/login.js"></script>
