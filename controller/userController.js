@@ -15,17 +15,46 @@ module.exports = {
     if(!errors.isEmpty()){
       res.render("addUser",{layout:'guest', errors:errors.array()});
     }else{
-      
-      let user = {
-        firstName : req.body.first_name,
-        lastName: req.body.last_name,
-        email : req.body.email,
-        password: req.body.password
-      };
+      db
+      .User
+      .findOne({
+        attributes: ["id", "firstName", "lastName", "email", "password"],
+        where: {
+          email: req.body.email
+        }/*,
+        include: [db.Posts]*/
+      })
+      .then( (dbUsers) => {
+            if(emptyObj(dbUsers)){
+                    // No user found
+                    let user = {
+                      firstName : req.body.first_name,
+                      lastName: req.body.last_name,
+                      email : req.body.email,
+                      password: req.body.password
+                    };
+              
+                    db.User.create(user).then(function(dbUser) {
+                      res.render("landing",{userCreated:'Successfully Created.Sign in'});
+                    });  
 
-      db.User.create(user).then(function(dbUser) {
-        res.render("landing",{userCreated:'Successfully Created.Sign in'});
-      });    
+            }else{
+              // authenticate
+            console.log("Email already in use please sign in with the password associated with that account.");
+            res.redirect("/");
+            }
+        }
+      )
+      // let user = {
+      //   firstName : req.body.first_name,
+      //   lastName: req.body.last_name,
+      //   email : req.body.email,
+      //   password: req.body.password
+      // };
+
+      // db.User.create(user).then(function(dbUser) {
+      //   res.render("landing",{userCreated:'Successfully Created.Sign in'});
+      // });    
     }
   },
   findByEmail: function (req, res) {
