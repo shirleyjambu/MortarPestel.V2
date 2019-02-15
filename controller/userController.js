@@ -75,12 +75,9 @@ module.exports = {
           console.log(err);
           res.status(404).json(err);
         }
-
-        
-        
       });
   },
-  userInfo: function(req, res) {
-    res.json(req.user);
+  getSessionUser:function(req,res){
+    res.send(req.user);
   }
 };

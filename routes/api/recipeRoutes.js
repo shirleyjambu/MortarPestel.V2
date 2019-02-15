@@ -5,6 +5,7 @@ const adminController = require("./../../controller/adminController");
 const validateMiddleware = require('./../../utils/middleware/validateUser');
 const passport = require('./../../utils/middleware/passport-local');
 const recipeController = require("./../../controller/recipeController");
+const pdfController = require("./../../controller/pdfController");
 
 router
   .route('/login')
@@ -44,6 +45,9 @@ router
     validateMiddleware.validateRecipe,
     recipeController.addRecipe);
 
+router
+  .route('/getPDF')
+  .get(pdfController.getPDF);    
 
 
 module.exports = router;

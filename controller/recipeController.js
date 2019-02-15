@@ -4,7 +4,7 @@ const {
 var db = require("./../models");
 
 module.exports = {
-  /*addRecipe: async function(req, res) {
+  addRecipe: async function(req, res) {
     console.log(req.body);
     console.log('-------- in add recipe ------------');
 
@@ -32,14 +32,6 @@ module.exports = {
         //return res.status(400).json(postError);
       }
 
-        // create pairings for multiple category creates in PostCategories through table
-      const ingredients = req.body.ingredientList
-      //.filter(category => (category !== "undefined"))
-      .map(ingredient => ({
-        RecipeId: dbRecipe.id,
-        IngredientId: ingredient
-      }));
-      
       console.log(ingredients);
       // create relationship between post and category
       const [ingredientErr, dbIngredient] = await promiseHandler(
@@ -54,8 +46,8 @@ module.exports = {
       res.json({ message: 'Ingredient successfully created!' });
 
     }
-  },*/
-  addRecipe: (req, res) => {
+  },
+  /*addRecipe: (req, res) => {
     console.log('-------- in add recipe ------------');
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -70,7 +62,7 @@ module.exports = {
         console.log('RenderBack to userRecipes');
       });
     }
-  },
+  }*/
   getAllRecipes : (req, res) => {
     console.log("IN GETTing all recipes");
      db.Recipe.findAll({})
@@ -82,5 +74,15 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });
+  },
+  getRecipeById : (req, res) => {
+    //console.log("Get Recipe By Id : " + req.params.recipe_id);
+    let recipe_id = '1';//req.params.recipe_id;
+    return db.Recipe.findById(recipe_id, {
+    include: [{
+      model: db.Ingredients
+    }]
+    })
   }
+
 };
