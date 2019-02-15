@@ -249,3 +249,11 @@ h1 {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+footer{
+  color: black;
+  text-align: center;
+}
+#chatBox{
+  float: right;
+}

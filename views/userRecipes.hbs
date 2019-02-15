@@ -1,2 +1,22 @@
-This page will have to display all the recipes that have been saved to the database.
-userRecipes.hbs
+<div class="row">
+  {{#each recipeData}}
+  <div class="col s12 m4 l4 p-2">
+    <div class="card small">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{this.image}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{this.recipe_name}}<i class="material-icons right">more_vert</i></span>
+      <p><a href="user/shareRecipe">Share Recipe</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">
+        {{this.recipe_name}}<i class="material-icons right">close</i>
+      </span>
+      {{this.recipe_html}}
+    </div>
+  </div>
+
+</div>
+{{/each}}
+</div>

@@ -1,4 +1,7 @@
 <div>
+  {{#if userExisting}}
+    <body onload="M.toast({html: '{{userExisting}}'})"></body>
+  {{/if}}
   {{#if errors}}
     {{#each errors}}
     <span style="color:red;">{{this.msg}}</span><br>

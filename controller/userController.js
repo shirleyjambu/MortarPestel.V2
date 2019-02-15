@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator/check');
 var db = require("./../models");
-const passport = require("./../utils/middleware/passport");
 
 const emptyObj =(obj) => {
   for(var key in obj) {
@@ -16,17 +15,45 @@ module.exports = {
     if(!errors.isEmpty()){
       res.render("addUser",{layout:'guest', errors:errors.array()});
     }else{
-      
-      let user = {
-        firstName : req.body.first_name,
-        lastName: req.body.last_name,
-        email : req.body.email,
-        password: req.body.password
-      };
+      db
+      .User
+      .findOne({
+        attributes: ["id", "firstName", "lastName", "email", "password"],
+        where: {
+          email: req.body.email
+        }/*,
+        include: [db.Posts]*/
+      })
+      .then( (dbUsers) => {
+            if(emptyObj(dbUsers)){
+                    // No user found
+                    let user = {
+                      firstName : req.body.first_name,
+                      lastName: req.body.last_name,
+                      email : req.body.email,
+                      password: req.body.password
+                    };
+              
+                    db.User.create(user).then(function(dbUser) {
+                      res.render("landing",{userCreated:'Successfully Created.Sign in'});
+                    });  
 
-      db.User.create(user).then(function(dbUser) {
-        res.render("landing",{userCreated:'Successfully Created.Sign in'});
-      });    
+            }else{
+              console.log("Email already in use please sign in with the password associated with that account.");
+              res.render("addUser",{layout:'guest',userExisting:'Email already in use please sign in with the password associated with that account.'});
+            }
+        }
+      )
+      // let user = {
+      //   firstName : req.body.first_name,
+      //   lastName: req.body.last_name,
+      //   email : req.body.email,
+      //   password: req.body.password
+      // };
+
+      // db.User.create(user).then(function(dbUser) {
+      //   res.render("landing",{userCreated:'Successfully Created.Sign in'});
+      // });    
     }
   },
   findByEmail: function (req, res) {
@@ -40,15 +67,7 @@ module.exports = {
         include: [db.Posts]*/
       })
       .then( (dbUsers) => {
-            if(emptyObj(dbUsers)){
-                    // No user found
-              console.log("User is not found in the DB");
-              res.render("landing",{userNotFound:'User Not Found'});
-            }else{
-              // authenticate
-            console.log("User has to be authenticated");
-            res.redirect("/user/userlanding");
-            }
+          res.send(dbUsers);
         }
       )
       .catch((err) => {
@@ -60,5 +79,8 @@ module.exports = {
         
         
       });
+  },
+  userInfo: function(req, res) {
+    res.json(req.user);
   }
 };

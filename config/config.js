@@ -1,10 +1,11 @@
-{
+require("dotenv").config();
+
+module.exports= {
   "development": {
     "username": "root",
-    "password": "Sq120899680",
-    "database": "blogger",
+    "password": process.env.DB_PASS,
+    "database": "mortar_pestel",
     "host": "127.0.0.1",
-    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
@@ -12,7 +13,6 @@
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "port": 3306,
     "dialect": "mysql"
   },
   "production": {
@@ -20,7 +20,6 @@
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "port": 3306,
     "dialect": "mysql"
   }
-}
+};
