@@ -1,3 +1,11 @@
+<form action="/quickSearch?ingredient" method="GET">
+  <div class="input-field">
+    <input placeholder="Enter Ingredient" id="ingredient" name="ingredient" type="text" class="validate">
+    <button type="submit" class="btn dark" id="searchbyIng">Quick Search by Ingredient</button>
+  </div>
+  <div id="errorMsg">{{errorMsg}}</div>
+</form>
+
 <div class="row">
   {{#each recipeData}}
   <div class="col s12 m4 l4 p-2">
