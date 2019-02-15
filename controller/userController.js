@@ -79,5 +79,10 @@ module.exports = {
         
         
       });
+  },
+  getSessionUser:function(req,res){
+    console.log('------------- SESSION -----------');
+    console.log(req.user);
+    res.send(req.user);
   }
 };

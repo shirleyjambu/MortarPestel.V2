@@ -27,7 +27,8 @@ $(document).ready(function(){
     let newIngredient={
       ingredient_name: $("#ingredient_name").val(),
       ingredient_quantity: $("#ingredient_quantity").val(),
-      measurementType: $("measurementType").val()
+      measurementType: $("measurementType").val(),
+      recipe_id:'1'
     };
 
     console.log(newIngredient);
@@ -35,7 +36,8 @@ $(document).ready(function(){
     let newRecipe = {
       recipe_name: $("#recipe_name").val().trim(),
       recipe_instruction : content,
-      recipe_html: justHtml
+      recipe_html: justHtml,
+      ingredient_list : [newIngredient]
     };
 
     $.ajax("/api/addRecipe", {

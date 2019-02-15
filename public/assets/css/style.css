@@ -254,3 +254,6 @@ footer{
   color: black;
   text-align: center;
 }
+#chatBox{
+  float:right;
+}
