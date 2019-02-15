@@ -79,5 +79,8 @@ module.exports = {
         
         
       });
+  },
+  userInfo: function(req, res) {
+    res.json(req.user);
   }
 };
