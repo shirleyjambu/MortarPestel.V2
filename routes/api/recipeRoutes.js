@@ -13,13 +13,13 @@ router
   })
   .post(
     validateMiddleware.validateUser,
-    loginController.loginUser,
+    
     (req, res, next) => passport.authenticate('local', {
       successRedirect: '/user/userlanding',
       failureRedirect: '/',
       failureFlash: true
     })(req, res, next));
-    
+    loginController.loginUser;
 
 router
 .route('/createUser')
