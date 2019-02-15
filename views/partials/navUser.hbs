@@ -6,8 +6,6 @@
       <a href="#user"><img class="circle" src="/assets/images/board.jpg"></a>
       <a href="#name"><span class="white-text name" id="loggedUser"></span></a>
       <a href="#email"><span class="white-text email" id="loggedEmail"></span></a>
-      
-                  
     </li>
     <li><a href="/user/userlanding"><i class="material-icons">search</i>Search Recipe</a></li>
     <li><a href="/user/userRecipes"><i class="material-icons">list</i>My Recipes</a></li>
@@ -21,27 +19,17 @@
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, {});
-  });
-
-  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-   var collapsibleElem = document.querySelector('.collapsible');
-   var collapsibleInstance = M.Collapsible.init(collapsibleElem, {});
-
-  // Or with jQuery
-
   $(document).ready(function(){
     $('.sidenav').sidenav();
-  });
+    $('.collapsible').collapsible();
 
-  $.ajax({
+    $.ajax({
     url: "/user/user-info",
     method: "GET"
-  }).then(userInfo => {
-    console.log(userInfo);
-    $("#loggedUser").text(`${userInfo.firstName} ${userInfo.lastName}`);
-    $("#loggedEmail").text(`${userInfo.email}`);
-  })
+    }).then(userInfo => {
+      console.log(userInfo);
+      $("#loggedUser").text(`${userInfo.firstName} ${userInfo.lastName}`);
+      $("#loggedEmail").text(`${userInfo.email}`);
+    })
+  });
   </script>
