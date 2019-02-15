@@ -75,14 +75,9 @@ module.exports = {
           console.log(err);
           res.status(404).json(err);
         }
-
-        
-        
       });
   },
   getSessionUser:function(req,res){
-    console.log('------------- SESSION -----------');
-    console.log(req.user);
     res.send(req.user);
   }
 };
