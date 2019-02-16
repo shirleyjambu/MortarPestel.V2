@@ -34,7 +34,7 @@ module.exports = {
     
     const doc = new PDFDocument();
 
-    const [err, recipeData] = await promiseHandler(recipeController.getRecipeById());
+    const [err, recipeData] = await promiseHandler(recipeController.getRecipeById(req,res));
 
     if (err) {
       console.log(err);
