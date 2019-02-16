@@ -1,74 +1,65 @@
-const {
-  validationResult
-} = require('express-validator/check');
-var db = require("./../models");
+const {validationResult} = require('express-validator/check');
+const db = require("./../models");
+
+const promiseHandler = promise => promise
+  .then(res => [null, res])
+  .catch(err => [err, null]);
+
 
 module.exports = {
-  /*addRecipe: async function(req, res) {
-    console.log(req.body);
-    console.log('-------- in add recipe ------------');
-
+  addRecipe: async function(req, res) {
     const errors = validationResult(req);
+    
     if (!errors.isEmpty()) {
-      console.log('-------- Errors ------------');
-      res.render("addRecipe", {
-        layout: 'user',
-        errors: errors.array()
-      });
+      res.render("addRecipe", {layout: 'user',errors: errors.array()});
     } else {
       let recipe = req.body;
+      //Set userid for recipe
+      recipe.UserId=req.user.id;
+
+      // Create Recipe
       const [recipeError, dbRecipe] = await promiseHandler(
-        db.Recipe.create(recipe).then(function (dbRecipe) {
-          console.log('RenderBack to userRecipes');
-        })
+        db.Recipe.create(recipe)
       );
 
-      // if error stop running now
+      // if error return
       if (recipeError) {
         console.log(recipeError);
         res.render("addRecipe", {
           layout: 'user',
           errors: [{message:'Error creating recipe'}]});
-        //return res.status(400).json(postError);
       }
 
-        // create pairings for multiple category creates in PostCategories through table
-      const ingredients = req.body.ingredientList
-      //.filter(category => (category !== "undefined"))
-      .map(ingredient => ({
-        RecipeId: dbRecipe.id,
-        IngredientId: ingredient
-      }));
-      
-      console.log(ingredients);
-      // create relationship between post and category
-      const [ingredientErr, dbIngredient] = await promiseHandler(
-        db.ingredient.bulkCreate(ingredients, { returning: true })
-      );
+      if(dbRecipe){
+        //Get ingredientlist
+        let ingredientsList = JSON.parse(req.body.ingredient_list);
+        console.log(ingredientsList);
 
-      if (ingredientErr) {
-        console.log(ingredientErr);
-        return res.status(400).json(ingredientErr);
+        //For each ingredient available
+        ingredientsList.forEach(async function(ingredient) {
+          //Add Recipeid to every ingredient
+          ingredient.RecipeId = dbRecipe.id;
+          
+          //Create ingredient
+          const [ingredientErr, dbIngredient] = await promiseHandler(
+            //db.Ingredients.bulkCreate(ingredients, { returning: true })
+            db.Ingredients.create(ingredient)
+          );
+          
+          //Error creating ingredient
+          if (ingredientErr) {
+            console.log(ingredientErr);
+            res.render("addRecipe",{layout:'user',errors:[{msg:'Error Adding Recipe'}]});
+          }
+
+          //Done creating ingredient
+          if(dbIngredient){
+            console.log('Ingredient Created');
+          }
+
+        });
       }
-  
-      res.json({ message: 'Ingredient successfully created!' });
-
-    }
-  },*/
-  addRecipe: (req, res) => {
-    console.log('-------- in add recipe ------------');
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      console.log('-------- Errors ------------');
-      res.render("addRecipe", {
-        layout: 'user',
-        errors: errors.array()
-      });
-    } else {
-      let recipe = req.body;
-      db.Recipe.create(recipe).then(function (dbRecipe) {
-        console.log('RenderBack to userRecipes');
-      });
+      res.send(dbRecipe);
     }
   },
   getAllRecipes : (req, res) => {
@@ -82,5 +73,15 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });
+  },
+  getRecipeById : (req, res) => {
+    let recipe_id = req.params.recipe_id;
+    
+    return db.Recipe.findByPk(recipe_id,{include: [
+      {
+          model: db.Ingredients,
+      }
+  ]})
   }
+
 };

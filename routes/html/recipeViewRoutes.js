@@ -3,7 +3,12 @@ const exApiController = require("./../../controller/exApiController");
 
 // Landing
 router.get("/",function(req,res){
-  res.render("landing","");
+  res.render("landing", "");
+});
+
+// Landing, user not registered
+router.get("/loginError",function(req,res){
+  res.render("landing", {message:'The email has not been registered or Invalid email & password'});
 });
 
 //Logout

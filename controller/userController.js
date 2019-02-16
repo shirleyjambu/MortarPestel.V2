@@ -75,9 +75,9 @@ module.exports = {
           console.log(err);
           res.status(404).json(err);
         }
-
-        
-        
       });
+  },
+  getSessionUser:function(req,res){
+    res.send(req.user);
   }
 };
