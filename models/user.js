@@ -6,6 +6,12 @@ const Sequelize =require("sequelize");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    /*id:{
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey:true,
+      type: DataTypes.INTEGER
+    },*/
     firstName :{
       type: DataTypes.STRING,
       allowNull: false
@@ -65,11 +71,5 @@ module.exports = function(sequelize, DataTypes) {
     });
   }
   
-  User.associate = function (models) {
-    User.hasMany(models.Recipe,{
-      onDelete: "cascade"
-    });
-  }
-
   return User;
 };

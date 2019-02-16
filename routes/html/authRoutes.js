@@ -2,7 +2,6 @@ const router = require('express').Router();
 const recipeController = require("./../../controller/recipeController");
 const userController = require("./../../controller/userController");
 const authorize = require("./../../utils/middleware/isAuthenticated");
-const userController = require("../../controller/userController");
 
 
 router.use(authorize);
@@ -23,11 +22,6 @@ router.get("/addRecipe", function(req, res){
 router.get("/adminMain", function(req, res){
   res.render("adminMain",{layout:'user'});
 });
-
-
-router
-  .route("/user-info")
-  .get(userController.userInfo);
 
 
 module.exports = router;
