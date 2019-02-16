@@ -20,7 +20,6 @@ passport.use(new LocalStrategy(
       // If there's no user with the given email
       
       if (!dbUser) {
-
         console.log('The email has not been registered.');
         return done(null, false, {
           message: "The email has not been registered."

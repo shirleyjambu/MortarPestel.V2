@@ -5,21 +5,24 @@ const adminController = require("./../../controller/adminController");
 const validateMiddleware = require('./../../utils/middleware/validateUser');
 const passport = require('./../../utils/middleware/passport-local');
 const recipeController = require("./../../controller/recipeController");
+const pdfController = require("./../../controller/pdfController");
+const cloudinaryMiddleware = require('./../../utils/middleware/cloudinary');
+
 
 router
   .route('/login')
-  .get((req, res) => {
+  .get((req, res,next) => {
     res.send('Login Get')
   })
   .post(
     validateMiddleware.validateUser,
-    
+    loginController.loginUser,
     (req, res, next) => passport.authenticate('local', {
       successRedirect: '/user/userlanding',
-      failureRedirect: '/',
+      failureRedirect: '/loginError',
       failureFlash: true
     })(req, res, next));
-    loginController.loginUser;
+    
 
 router
 .route('/createUser')
@@ -27,23 +30,24 @@ router
   validateMiddleware.validateNewUser, 
   userController.createUser);
 
+
   router
   .route('/addMeasurements')
   .post(
     validateMiddleware.validateMeasurements, 
     adminController.addMeasurements);
-  router
-  .route('/createUser')
-  .post(
-    validateMiddleware.validateNewUser,
-    userController.createUser);
 
+  
 router
   .route('/addRecipe')
   .post(
+    cloudinaryMiddleware,
     validateMiddleware.validateRecipe,
     recipeController.addRecipe);
 
+router
+  .route('/getPDF/:recipe_id')
+  .get(pdfController.getPDF);    
 
 
 module.exports = router;

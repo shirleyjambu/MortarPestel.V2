@@ -4,6 +4,10 @@
       <div>
         <span class="card-title">Create an account or Login</span>
         <!-- Login Card-->
+        
+        {{#if message}}
+            <body onload="M.toast({html: '{{message}}'})"></body>
+        {{/if}}
         {{#if error_msg}}
             <p><strong>FLASH!</strong> {{ error_msg }}</p>
         {{/if}}
