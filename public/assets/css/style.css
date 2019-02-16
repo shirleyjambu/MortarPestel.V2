@@ -257,3 +257,10 @@ footer{
 #chatBox{
   float: right;
 }
+#logo {
+
+  background-image: url("../images/mpLogo.jpg");
+}
+.btndark{
+  text-align: center;
+}
