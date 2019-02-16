@@ -32,10 +32,10 @@ router
 
 
   router
-  .route('/addMeasurements')
+  .route('/addItems')
   .post(
-    validateMiddleware.validateMeasurements, 
-    adminController.addMeasurements);
+    validateMiddleware.validateItems, 
+    adminController.addItems);
 
   
 router
