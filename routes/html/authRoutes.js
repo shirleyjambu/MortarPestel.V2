@@ -25,5 +25,6 @@ router.get("/adminMain", function(req, res){
 
 router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
 
+router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
 
 module.exports = router;
