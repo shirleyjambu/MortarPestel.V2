@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
   var Category = sequelize.define("Category", {
-    cuisine_name: {
+    categories_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -17,7 +17,8 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: Sequelize.NOW,
     }
 
-  }, {
+  }, 
+  {
     timestamps: true
   });
   return Category;

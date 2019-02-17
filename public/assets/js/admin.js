@@ -16,6 +16,14 @@ const getCuisine = () => {
  });
 };
 
+const getCatergory = () => {
+  $.ajax(
+  {url : "/user/getCategory",
+    type : 'GET'}
+  ).then((data) =>{
+     createCategoryTable(data);
+  });
+ };
 
 
 
@@ -40,12 +48,22 @@ const createCuisineTable =(data) => {
   $("#cContainer").append(newTable);
 }
 
+const createCategoryTable =(data) => {
+  let newTable = $("<table style='width:50%'>");
+  data.forEach((category) => {
+    let $tr = createRow(category.categories_name);
+    newTable.append($tr);
+  });    
+  $("#catContainer").append(newTable);
+}
 
 const createRow = (name) => {
   let $tr = $("<tr>");
   let $tdItem = $("<td>").html(name);
   let $tdEdit = $("<td>").html(`<i class="material-icons">edit</i>`);
   let $tdDelete = $("<td>").html(`<i class="material-icons">delete</i>`);
+
+  
 
   $tr.append($tdItem, $tdEdit, $tdDelete);
 
@@ -55,16 +73,10 @@ const createRow = (name) => {
 
 
 
-$(document).ready(function () {
-<<<<<<< HEAD
- // Intialize materialize controls
-  $('.collapsible').collapsible();
-  $('.tabs').tabs();
-  $('select').formSelect();
 
-  getMeasurements();
-  getCuisine();
-=======
+
+
+$(document).ready(function () {
   // Intialize materialize controls
    $('.collapsible').collapsible();
    $('.tabs').tabs();
@@ -72,5 +84,5 @@ $(document).ready(function () {
 
    getMeasurements();
    getCuisine();
->>>>>>> ebddd10bb37c9c8012d2c51383878014e0493e99
+   getCatergory();
 });
