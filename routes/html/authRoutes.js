@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const recipeController = require("./../../controller/recipeController");
 const userController = require("./../../controller/userController");
+const adminController = require("./../../controller/adminController");
 const authorize = require("./../../utils/middleware/isAuthenticated");
 
 
@@ -23,5 +24,8 @@ router.get("/adminMain", function(req, res){
   res.render("adminMain",{layout:'user'});
 });
 
+router.get("/getMeasurements",adminController.getAllMeasurements);
+
+router.get("/getCuisine",adminController.getAllCuisines);
 
 module.exports = router;

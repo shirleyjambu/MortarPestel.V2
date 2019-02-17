@@ -12,8 +12,8 @@ module.exports.validateNewUser = [
   check('password').isLength({ min: 8 }).withMessage('Password should be at least 8 characters.'),
 ];
 
-module.exports.validateMeasurements = [
-  check('measurement').isLength({ min: 1 }).withMessage('Measurement cannot be empty.'),
+module.exports.validateItems = [
+  check('item').isLength({ min: 1 }).withMessage('Item cannot be empty.'),
   
 ];
 module.exports.validateRecipe = [
