@@ -26,8 +26,6 @@ module.exports.validateNewUser = [
 ];
 
 module.exports.validateItems = [
-  
-  //check('adminChoice').isArray().notEmpty().withMessage('Please select Choice'),
   check('item').isLength({ min: 1 }).withMessage('Item cannot be empty.'),
   
 ];

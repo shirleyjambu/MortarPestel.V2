@@ -15,24 +15,23 @@
 <!--Add Items -->
 <div style="width: 50%">
 <form action="/api/addItems" method="POST">
-    <div class="input-field col s3 myOption">
-    <select name="adminChoice" id="adminChoice">
-      <option value="" disabled selected>Activity</option>
-      <option value="1">Measurement</option>
-      <option value="2">Cuisine</option>
-      <option value="3">Category</option>
-      <option value="4">Change User Type</option>
-    </select>
-    <label>Select Activity</label>
-  </div>
-
- <div class="row">
-   <div class="input-field col s8  float right">
-     <input placeholder="Enter Value" id="item" name="item" type="text" class="validate">
-     <label for="Add Item"></label>
-     <button type="submit">Submit</button>
+     <div class="input-field col s3 myOption">
+     <select name="adminChoice" id="adminChoice">
+       <option value="" disabled selected>Activity</option>
+       <option value="1">Measurement</option>
+       <option value="2">Cuisine</option>
+       <option value="3">Change User Type</option>
+     </select>
+     <label>Select Activity</label>
    </div>
-</div>
+
+  <div class="row">
+    <div class="input-field col s8  float right">
+      <input placeholder="Enter Value" id="item" name="item" type="text" class="validate">
+      <label for="Add Item"></label>
+      <button type="submit">Submit</button>
+    </div>
+ </div>
 </form>
 </div>
 <br>
@@ -40,18 +39,18 @@
 
 <!-- Display Items -->
 <div class="row">
- <div class="col s12">
-   <ul class="tabs">
-     <li class="tab col s3"><a href="#test1">Measurement</a></li>
-     <li class="tab col s3"><a class="active" href="#test2">Cuisine</a></li>
-     <li class="tab col s3"><a href="#test3">Category</a></li>
-     <li class="tab col s3"><a href="#test4">Users</a></li>
-   </ul>
- </div>
- <div id="test1" class="col s12"><div id="mContainer">No Measurement Available.</div></div>
- <div id="test2" class="col s12"><div id="cContainer">No Cuisine Available.</div></div>
- <div id="test3" class="col s12"><div id="catContainer">No Categories Available.</div></div>
- <div id="test4" class="col s12"><div id="uContainer">No Users</div></div>
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a href="#test1">Measurement</a></li>
+      <li class="tab col s3"><a class="active" href="#test2">Cuisine</a></li>
+      <li class="tab col s3"><a href="#test3">Category</a></li>
+      <li class="tab col s3"><a href="#test4">Users</a></li>
+    </ul>
+  </div>
+  <div id="test1" class="col s12"><div id="mContainer">No Measurement Available.</div></div>
+  <div id="test2" class="col s12"><div id="cContainer">No Cuisine Available.</div></div>
+  <div id="test3" class="col s12"><div id="catContainer">No Categories Available.</div></div>
+  <div id="test4" class="col s12"><div id="uContainer">No Users</div></div>
 </div>
 
-<script src="/assets/js/admin.js"></script>
+ <script src="/assets/js/admin.js"></script>

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const recipeController = require("./../../controller/recipeController");
 const userController = require("./../../controller/userController");
+const adminController = require("./../../controller/adminController");
 const authorize = require("./../../utils/middleware/isAuthenticated");
 const adminController = require("./../../controller/adminController");
 
@@ -29,7 +30,8 @@ router.get("/adminMain", function(req, res){
 router.get("/getMeasurements",adminController.getAllMeasurements);
 
 router.get("/getCuisine",adminController.getAllCuisines);
+router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
 
-router.get("/getCategory",adminController.getAllCategory);
+router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
 
 module.exports = router;

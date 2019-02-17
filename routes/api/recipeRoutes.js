@@ -32,10 +32,10 @@ router
 
 
   router
-  .route('/addItems')
-  .post(
-    validateMiddleware.validateItems, 
-    adminController.addItems);
+ .route('/addItems')
+ .post(
+   validateMiddleware.validateItems,
+   adminController.addItems);
 
   
 router
@@ -49,5 +49,9 @@ router
   .route('/getPDF/:recipe_id')
   .get(pdfController.getPDF);    
 
+  router
+  .route('/shareRecipe/:recipe_id/:user_id')
+  .get(recipeController.shareRecipe);   
+  
 
 module.exports = router;

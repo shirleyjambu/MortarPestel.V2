@@ -82,6 +82,35 @@ module.exports = {
           model: db.Ingredients,
       }
   ]})
+  },
+
+  shareRecipe : (req, res) => {
+    let recipe_id = req.params.recipe_id;
+    let user_id = req.params.user_id;
+
+
+    // add a record to the access table 
+
+
+  },
+
+  deleteRecipe : (req, res) => {
+
+
+    db.Recipe.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbRecipe) {
+        // res.send(dbRecipe);
+        res.render("userRecipes",{layout: "user", message:"This recipe has been successfully deleted."})
+      });
+  
+    
+    // let recipe_id = req.params.recipe_id;
+                 
+    // where recipe_id = req.params.recipe_id = 
   }
 
 };

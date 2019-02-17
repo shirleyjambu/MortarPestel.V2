@@ -1,77 +1,62 @@
 const getMeasurements = () => {
-  $.ajax(
- {url : "/user/getMeasurements",
-   type : 'GET'}
- ).then((data) =>{
-   createMeasurementTable(data);
- });
+   $.ajax(
+  {url : "/user/getMeasurements",
+    type : 'GET'}
+  ).then((data) =>{
+    createMeasurementTable(data);
+  });
 };
 
 const getCuisine = () => {
-$.ajax(
-{url : "/user/getCuisine",
-  type : 'GET'}
-).then((data) =>{
-   createCuisineTable(data);
-});
+ $.ajax(
+ {url : "/user/getCuisine",
+   type : 'GET'}
+ ).then((data) =>{
+    createCuisineTable(data);
+ });
 };
 
-const getCategory = () => {
-  $.ajax(
-  {url : "/user/getCategory",
-    type : 'GET'}
-  ).then((data) =>{
-     createCategoryTable(data);
-  });
-  };
+
+
 
 
 const createMeasurementTable =(data) => {
- let newTable = $("<table style='width:50%'>");
- data.forEach((measurement) => {
-   let $tr = createRow(measurement.measurement_name);
-   newTable.append($tr);
- });
-
- $("#mContainer").append(newTable);
+  let newTable = $("<table style='width:50%'>");
+  data.forEach((measurement) => {
+    let $tr = createRow(measurement.measurement_name);
+    newTable.append($tr);
+  });  
+  
+  $("#mContainer").append(newTable);
 }
 
 const createCuisineTable =(data) => {
- let newTable = $("<table style='width:50%'>");
- data.forEach((cuisine) => {
-   let $tr = createRow(cuisine.cuisine_name);
-   newTable.append($tr);
- });
-
- $("#cContainer").append(newTable);
-}
-
-const createCategoryTable =(data) => {
   let newTable = $("<table style='width:50%'>");
-  data.forEach((category) => {
-    let $tr = createRow(category.category_name);
+  data.forEach((cuisine) => {
+    let $tr = createRow(cuisine.cuisine_name);
     newTable.append($tr);
-  });
- 
-  $("#catContainer").append(newTable);
- }
+  });  
+  
+  $("#cContainer").append(newTable);
+}
 
 
 const createRow = (name) => {
- let $tr = $("<tr>");
- let $tdItem = $("<td>").html(name);
- let $tdEdit = $("<td>").html(`<i class="material-icons">edit</i>`);
- let $tdDelete = $("<td>").html(`<i class="material-icons">delete</i>`);
+  let $tr = $("<tr>");
+  let $tdItem = $("<td>").html(name);
+  let $tdEdit = $("<td>").html(`<i class="material-icons">edit</i>`);
+  let $tdDelete = $("<td>").html(`<i class="material-icons">delete</i>`);
 
- $tr.append($tdItem, $tdEdit, $tdDelete);
+  $tr.append($tdItem, $tdEdit, $tdDelete);
 
- return $tr;
+  return $tr;
 }
 
 
 
 
 $(document).ready(function () {
+<<<<<<< HEAD
  // Intialize materialize controls
   $('.collapsible').collapsible();
   $('.tabs').tabs();
@@ -79,4 +64,13 @@ $(document).ready(function () {
 
   getMeasurements();
   getCuisine();
+=======
+  // Intialize materialize controls
+   $('.collapsible').collapsible();
+   $('.tabs').tabs();
+   $('select').formSelect();
+
+   getMeasurements();
+   getCuisine();
+>>>>>>> ebddd10bb37c9c8012d2c51383878014e0493e99
 });
