@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
-  var Cuisines = sequelize.define("Cuisines", {
-    cuisine_name: {
+  var Category = sequelize.define("Category", {
+    categories_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -21,5 +21,5 @@ module.exports = function (sequelize, DataTypes) {
   {
     timestamps: true
   });
-  return Cuisines;
+  return Category;
 };

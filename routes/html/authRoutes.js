@@ -4,7 +4,6 @@ const userController = require("./../../controller/userController");
 const adminController = require("./../../controller/adminController");
 const authorize = require("./../../utils/middleware/isAuthenticated");
 
-
 router.use(authorize);
 
 router.get("/user-info", userController.getSessionUser);
@@ -14,6 +13,7 @@ router.get("/userlanding", function(req, res){
 });
 
 router.get("/userRecipes",recipeController.getAllRecipes);
+
 
 
 router.get("/addRecipe", function(req, res){
@@ -27,6 +27,11 @@ router.get("/adminMain", function(req, res){
 router.get("/getMeasurements",adminController.getAllMeasurements);
 
 router.get("/getCuisine",adminController.getAllCuisines);
+
+router.get("/getCategory",adminController.getAllCategory);
+
+router.get("/getUser",adminController.getAllUser);
+
 router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
 
 router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
