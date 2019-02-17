@@ -1,7 +1,7 @@
 const Sequelize =require("sequelize");
 
 module.exports = function(sequelize, DataTypes) {
- var Cuisines = sequelize.define("Cuisines", {
+ var Category = sequelize.define("Category", {
    cuisine_name: {
      type: DataTypes.STRING,
      allowNull: false
@@ -21,5 +21,5 @@ module.exports = function(sequelize, DataTypes) {
  {
    timestamps: true
  });
- return Cuisines;
+ return Category;
 };

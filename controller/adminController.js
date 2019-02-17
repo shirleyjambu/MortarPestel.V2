@@ -43,7 +43,7 @@ module.exports = {
       
     }
   },
-  getAllMeasurements :()=>{
+  getAllMeasurements :(req, res)=>{
     db.Measurements.findAll({})
     .then((dbData) => {
       //console.log(dbData);
@@ -55,8 +55,19 @@ module.exports = {
     });
   
   },
-  getAllCuisines:()=>{
+  getAllCuisines:(req, res)=>{
     db.Cuisine.findAll({})
+    .then((dbData) => {
+      //console.log(dbData);
+      res.render("adminMain",{layout:'user', itemData:dbData});
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  },
+  getAllCategory:(req, res)=>{
+    db.Category.findAll({})
     .then((dbData) => {
       //console.log(dbData);
       res.render("adminMain",{layout:'user', itemData:dbData});
