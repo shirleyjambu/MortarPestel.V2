@@ -97,9 +97,9 @@ module.exports = {
         console.log("Found DB User");
         console.log(dbUsers.id);
         console.log(req.params.recipeId);
-        if (dbUsers){
-            accessController.create(); 
-        }
+        // if (dbUsers){
+        //     accessController.create(); 
+        // }
         // insert the id of the recipe and user id of the shared user into the table .req.params.recipeId 
           res.send(dbUsers);
         }
