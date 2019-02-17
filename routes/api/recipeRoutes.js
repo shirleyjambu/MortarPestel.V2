@@ -49,5 +49,9 @@ router
   .route('/getPDF/:recipe_id')
   .get(pdfController.getPDF);    
 
+  router
+  .route('/shareRecipe/:recipe_id/:user_id')
+  .get(recipeController.shareRecipe);   
+  
 
 module.exports = router;

@@ -23,5 +23,8 @@ router.get("/adminMain", function(req, res){
   res.render("adminMain",{layout:'user'});
 });
 
+router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
+
+router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
 
 module.exports = router;
