@@ -32,7 +32,7 @@
     $('.tooltipped').tooltip();
   });
 
-  function shareRecipe (){
+  function shareRecipe (recipeId){
    Swal.fire({
  title: 'Enter the email id?',
  input: 'text',
@@ -43,7 +43,7 @@
  confirmButtonText: 'Look up',
  showLoaderOnConfirm: true,
  preConfirm: (input) => {
-   return fetch(`/user/shareRecipe/${input}`)
+   return fetch(`/user/shareRecipe/${input}/${recipeId}`)
      .then(response => {
        if (!response.ok) {
          throw new Error(response.statusText)
@@ -58,11 +58,22 @@
  },
  allowOutsideClick: () => !Swal.isLoading()
 }).then((result) => {
- if (result.value) {
+ if (result) {
+   console.log(result);
    Swal.fire({
-     title: `'You've shared your recipe with '${input}`,
-     imageUrl: result.value.avatar_url
-   })
+            title: `You've shared your recipe with ${result.value.firstName}`,
+            type: 'info',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+              '<i class="fa fa-thumbs-up"></i> Great!',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+              '<i class="fa fa-thumbs-down"></i>',
+            cancelButtonAriaLabel: 'Thumbs down',
+})
+   
  }
 })
   };
