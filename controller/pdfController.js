@@ -8,6 +8,7 @@ const promiseHandler = promise => promise
   .then(res => [null, res])
   .catch(err => [err, null]);
 
+
 const compile = (templateName, data) =>{
     return  new Promise(async(resolve, reject) => {
       const filepath = path.join(path.dirname(__dirname) , 'template', `${templateName}.hbs`);
@@ -42,12 +43,12 @@ module.exports = {
     }
 
     if(recipeData){
-      console.log(`
+      /*console.log(`
     
         
       STEP 0 ..Get DATA ${recipeData.dataValues}
     
-      `);
+      `);*/
 
       const [compileErr, content] = await promiseHandler(compile('recipePdf',recipeData.dataValues));
     
@@ -67,15 +68,13 @@ module.exports = {
 
             // Embed a font, set the font size, and render some text
             doc.font('Times-Roman')
-            .fontSize(25)
+            .fontSize(20)
             .text(content, 100, 100);
             doc.pipe(res);
-            doc.end();
+            doc.end(); 
       
-            console.log("STEP 4 : PDF CREATED");
+        //    console.log("STEP 4 : PDF CREATED");
       
-      
-
       }
      
     }

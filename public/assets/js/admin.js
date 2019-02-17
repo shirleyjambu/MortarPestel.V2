@@ -52,9 +52,6 @@ const createRow = (name) => {
   return $tr;
 }
 
-
-
-
 $(document).ready(function () {
   // Intialize materialize controls
    $('.collapsible').collapsible();
@@ -63,4 +60,5 @@ $(document).ready(function () {
 
    getMeasurements();
    getCuisine();
+   
 });

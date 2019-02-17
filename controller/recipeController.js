@@ -64,9 +64,13 @@ module.exports = {
   },
   getAllRecipes : (req, res) => {
     console.log("IN GETTing all recipes");
-     db.Recipe.findAll({})
+     db.Recipe.findAll({include: [
+      {
+          model: db.Ingredients,
+      }
+  ]})
       .then((dbRecipes) => {
-        //console.log(dbRecipes);
+        console.log(dbRecipes);
         res.render("userRecipes",{layout:'user', recipeData:dbRecipes});
       })
       .catch(err => {

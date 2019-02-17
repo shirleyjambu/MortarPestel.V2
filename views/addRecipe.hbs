@@ -15,14 +15,11 @@
          <input placeholder="Recipe Name" type="text" id="recipe_name" name ="recipe_name" class="validate">
        </div>
        <div class="input-field col s3 myOption">
-             <select name="cuisine_type" id="cuisine_type">
-               <option value="" disabled selected>Cuisine</option>
-               <option value="1">Asian</option>
-               <option value="2">Italian</option>
-               <option value="3">Mexican</option>
-             </select>
-             <label for="cuisine_type">Select Cuisine Type</label>
-           </div>
+         
+         <select id="cuisineDropdown" class="materialSelect">
+          <option value="">Select Cuisine</option>
+          </select>
+       </div>
      </div>
 
        <div class="file-field input-field s6">
@@ -36,32 +33,18 @@
          </div>
        </div>
   
-     <div>
-       <h6>Ingredients</h6>
-     </div>
-     <div class="row">
-         <div class="row">
-           <div class="input-field col s3">
-             <i class="material-icons prefix">account_circle</i>
-             <input id="ingredient_name" name="ingredient_name" type="text" class="validate">
-             <label for="ingredient_name">Ingredients</label>
-           </div>
-           <div class="input-field col s3">
-             <i class="material-icons prefix">phone</i>
-             <input id="ingredient_quantity" name="ingredient_quantity" type="text" class="validate">
-             <label for="ingredient_quantity">Quantity</label>
-           </div>
-           <div class="input-field col s3 myOption">
-             <select name="measurementType" id="measurementType">
-               <option value="" disabled selected>Measurement</option>
-               <option value="1">Cups</option>
-               <option value="2">Oz</option>
-               <option value="3">Grams</option>
-             </select>
-             <label for="measurementType">Select Measurement</label>
-           </div>
-           <i class="material-icons prefix moreIngredients">add_circle</i>
-     </div>
+     <!-- Create Ingredient Row -->
+      <div class="row">
+        <div><h6>Ingredients Required : <i class="material-icons prefix moreIngredients">add_circle</i></h6></div>
+        <div class="row">
+          <table id="ingredientTable" class="p1">
+
+          </table>
+        </div>
+
+      </div>
+     <!-- End of Ingredients-->
+     
      <div class="col s8">
        <div id="editor" name="recipe_instruction" style="height:100px;">
        </div>
