@@ -68,6 +68,25 @@ module.exports = {
           
           break;
 
+          case "4":
+          //Edit user
+
+          let user = {
+            firstName : req.body.first_name,
+            lastName: req.body.last_name,
+            email : req.body.email,
+            password: req.body.password
+          };
+
+          db.User.create(user).then(function(dbUser) {
+            res.render("adminMain",{
+              layout: 'user',
+              itemCreated: 'User has been updated in the database'
+            });
+          });
+                 
+          break;
+
       }
 
     }
@@ -102,5 +121,16 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });
+  },
+  getAllUser: (req, res) => {
+    db.User.findAll({})
+      .then((dbData) => {
+        res.send(dbData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   }
+
 };

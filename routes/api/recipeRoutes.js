@@ -32,10 +32,13 @@ router
 
 
   router
- .route('/addItems')
+ .route('/tableItems/:id?/:table?')
  .post(
    validateMiddleware.validateItems,
-   adminController.addItems);
+   adminController.addItems)
+   .delete(adminController.deleteItems)
+   .put(adminController.updateItems)
+   .get(adminController.getItems);
 
   
 router

@@ -14,7 +14,7 @@
 
 <!--Add Items -->
 <div style="width: 50%">
-<form action="/api/addItems" method="POST">
+<form action="/api/tableItems" method="POST">
      <div class="input-field col s3 myOption">
      <select name="adminChoice" id="adminChoice">
        <option value="" disabled selected>Activity</option>
@@ -54,4 +54,43 @@
   <div id="test4" class="col s12"><div id="uContainer"></div></div>
 </div>
 
+<script>
+const deleteRow = (name) => {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        return fetch(`/user/adminMain/${name}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        location.reload();
+        {{!-- return response.json() --}}
+        })
+                    .catch(error => {
+                      Swal.showValidationMessage(
+                        `Request failed: ${error}`
+                      )
+                    })
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+          })
+
+}
+
+
+</script>
+
  <script src="/assets/js/admin.js"></script>
+

@@ -60,11 +60,8 @@ const createCategoryTable =(data) => {
 const createRow = (name) => {
   let $tr = $("<tr>");
   let $tdItem = $("<td>").html(name);
-  let $tdEdit = $("<td>").html(`<i class="material-icons">edit</i>`);
-  let $tdDelete = $("<td>").html(`<i class="material-icons">delete</i>`);
-
-  
-
+  let $tdEdit = $("<td>").html(`<a href=""><i class="material-icons">edit</i></a>`);
+  let $tdDelete = $("<td>").html(`<a href=""><i class="material-icons">delete_forever</i></a>`);
   $tr.append($tdItem, $tdEdit, $tdDelete);
 
   return $tr;
