@@ -83,19 +83,26 @@ module.exports = {
   },
 
   shareRecipe: function (req, res){
-    
-    this.findByEmail
-    .then ((data) => {
-      console.log("record found");
-      // enter a record in access table
-      res.send(data);
-      
-    })
-    .catch((err) => {
-      if (err){
-        console.log(err)
+    console.log(req.params.email);
+    db
+      .User
+      .findOne({
+        attributes: ["id", "firstName", "lastName", "email", "password"],
+        where: {
+          email: req.params.email
+        } 
+      })
+      .then( (dbUsers) => {
+        console.log("Found DB User");
+          res.send(dbUsers);
+        }
+      )
+      .catch((err) => {
+        if(err){
+          console.log(err);
           res.status(404).json(err);
-    }
-    })
+        }
+      });
+   
   }
 };

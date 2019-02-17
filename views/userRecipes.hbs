@@ -48,8 +48,7 @@
        if (!response.ok) {
          throw new Error(response.statusText)
        }
-       {{!-- return response.json() --}}
-        Swal.fire('Any fool can use a computer')
+       return response.json()
      })
      .catch(error => {
        Swal.showValidationMessage(
@@ -61,7 +60,7 @@
 }).then((result) => {
  if (result.value) {
    Swal.fire({
-     title: `'You've shared your recipe with '${result.value.login}`,
+     title: `'You've shared your recipe with '${input}`,
      imageUrl: result.value.avatar_url
    })
  }
