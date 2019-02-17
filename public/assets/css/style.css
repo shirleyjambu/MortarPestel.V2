@@ -257,3 +257,6 @@ footer{
 #chatBox{
   float: right;
 }
+
+select{
+  background-color: rgba(238, 233, 226, 0.493)};

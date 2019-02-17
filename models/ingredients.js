@@ -33,5 +33,5 @@ Ingredients.associate = function(models) {
     })
 };
 
- return Ingredients;
+return Ingredients;
 };
