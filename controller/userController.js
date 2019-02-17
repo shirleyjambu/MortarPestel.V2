@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator/check');
 var db = require("./../models");
+const accessController = require("./accessController");
 
 const emptyObj =(obj) => {
   for(var key in obj) {
@@ -56,13 +57,14 @@ module.exports = {
       // });    
     }
   },
+  
   findByEmail: function (req, res) {
     db
       .User
       .findOne({
         attributes: ["id", "firstName", "lastName", "email", "password"],
         where: {
-          email: req.body.email
+          email: req.params.email
         }/*,
         include: [db.Posts]*/
       })
@@ -79,5 +81,35 @@ module.exports = {
   },
   getSessionUser:function(req,res){
     res.send(req.user);
+  },
+
+  shareRecipe: function (req, res){
+    console.log(req.params.email);
+    db
+      .User
+      .findOne({
+        attributes: ["id", "firstName", "lastName", "email", "password"],
+        where: {
+          email: req.params.email
+        } 
+      })
+      .then( (dbUsers) => {
+        console.log("Found DB User");
+        console.log(dbUsers.id);
+        console.log(req.params.recipeId);
+        if (dbUsers){
+            accessController.create(); 
+        }
+        // insert the id of the recipe and user id of the shared user into the table .req.params.recipeId 
+          res.send(dbUsers);
+        }
+      )
+      .catch((err) => {
+        if(err){
+          console.log(err);
+          res.status(404).json(err);
+        }
+      });
+   
   }
 };

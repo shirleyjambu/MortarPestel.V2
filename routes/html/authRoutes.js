@@ -27,5 +27,8 @@ router.get("/adminMain", function(req, res){
 router.get("/getMeasurements",adminController.getAllMeasurements);
 
 router.get("/getCuisine",adminController.getAllCuisines);
+router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
+
+router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
 
 module.exports = router;
