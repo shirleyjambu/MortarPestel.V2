@@ -21,7 +21,7 @@
       <a class="tooltipped" data-position="bottom" data-tooltip="Edit" href="/api/editRecipe/{{this.id}}"><i class="material-icons">edit</i></a>
       <a class="tooltipped" data-position="bottom" data-tooltip="Delete" href="/api/deleteRecipe/{{this.id}}"><i class="material-icons">delete_forever</i></a>
       <a class="tooltipped" data-position="bottom" data-tooltip="View" href="/api/viewRecipe/{{this.id}}"><i class="material-icons">view_headline</i></a>
-      <a class="tooltipped" data-position="bottom" data-tooltip="Share" href="/api/shareRecipe/{{this.id}}"><i class="material-icons">share</i></a>
+      <a class="tooltipped" data-position="bottom" data-tooltip="Share" href="#" onclick="shareRecipe()"><i class="material-icons">share</i></a>
     </div>
   </div>
 </div>
@@ -31,4 +31,40 @@
   $(document).ready(function(){
     $('.tooltipped').tooltip();
   });
+
+  function shareRecipe (){
+   Swal.fire({
+ title: 'Enter the email id?',
+ input: 'text',
+ inputAttributes: {
+   autocapitalize: 'off'
+ },
+ showCancelButton: true,
+ confirmButtonText: 'Look up',
+ showLoaderOnConfirm: true,
+ preConfirm: (input) => {
+   return fetch(`/user/shareRecipe/${input}`)
+     .then(response => {
+       if (!response.ok) {
+         throw new Error(response.statusText)
+       }
+       {{!-- return response.json() --}}
+        Swal.fire('Any fool can use a computer')
+     })
+     .catch(error => {
+       Swal.showValidationMessage(
+         `Request failed: ${error}`
+       )
+     })
+ },
+ allowOutsideClick: () => !Swal.isLoading()
+}).then((result) => {
+ if (result.value) {
+   Swal.fire({
+     title: `'You've shared your recipe with '${result.value.login}`,
+     imageUrl: result.value.avatar_url
+   })
+ }
+})
+  };
 </script>

@@ -56,13 +56,14 @@ module.exports = {
       // });    
     }
   },
+  
   findByEmail: function (req, res) {
     db
       .User
       .findOne({
         attributes: ["id", "firstName", "lastName", "email", "password"],
         where: {
-          email: req.body.email
+          email: req.params.email
         }/*,
         include: [db.Posts]*/
       })
@@ -79,5 +80,22 @@ module.exports = {
   },
   getSessionUser:function(req,res){
     res.send(req.user);
+  },
+
+  shareRecipe: function (req, res){
+    
+    this.findByEmail
+    .then ((data) => {
+      console.log("record found");
+      // enter a record in access table
+      res.send(data);
+      
+    })
+    .catch((err) => {
+      if (err){
+        console.log(err)
+          res.status(404).json(err);
+    }
+    })
   }
 };
