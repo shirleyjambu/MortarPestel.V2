@@ -13,7 +13,7 @@ module.exports.validateNewUser = [
   check('password').not().equals('passwordconfirm').withMessage('Passwords must match.')
 ];
 
-module.exports.validateMeasurements = [
+module.exports.validateItems = [
   check('measurement').isLength({ min: 1 }).withMessage('Measurement cannot be empty.'),
   
 ];

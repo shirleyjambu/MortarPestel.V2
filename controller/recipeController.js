@@ -97,7 +97,7 @@ module.exports = {
 
     // add a record to the access table 
   
-    db.Access.create({userId:user_id,recipeId:recipe_id})
+    db.Accesses.create({userId:user_id,recipeId:recipe_id})
     .then((data) =>{res.send(data)})
     .catch((err) => res.send(err));
 
