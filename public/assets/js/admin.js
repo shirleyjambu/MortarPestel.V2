@@ -63,14 +63,14 @@ const createRow = (name) => {
     let $tr = $("<tr>");
     let $tdItem = $("<td>").html(name);
     let $tdEdit = $("<td>").html(`<a href=""><i class="material-icons">edit</i></a>`);
-    let $tdDelete = $("<td>").html(`<a href=""><i class="material-icons">delete_forever</i></a>`);
+    let $tdDelete = $("<td>").html(`<a href="#" onclick="deleteRow();"><i class="material-icons">delete_forever</i></a>`);
     $tr.append($tdItem, $tdEdit, $tdDelete);
 
     return $tr;
   }
 
  
-  const deleteRow = (name) => {
+  const deleteRow = () => {
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -81,7 +81,7 @@ const createRow = (name) => {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.value) {
-          return fetch(`/user/tableItems/${name}`)
+          return fetch(`/user/deleteItems/1/MST`)
             .then(response => {
               if (!response.ok) {
                 throw new Error(response.statusText)

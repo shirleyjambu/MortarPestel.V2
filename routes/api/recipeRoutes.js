@@ -32,14 +32,15 @@ router
 
 
   router
- .route('/tableItems/:id?/:table?')
+ .route('/addItems')
  .post(
    validateMiddleware.validateItems,
-   adminController.addItems)
-   .delete(adminController.deleteItems)
-   .put(adminController.updateItems)
-   .get(adminController.getItems);
+    adminController.addItems);
 
+  router
+  .route('/deleteItems/:id?/:table?')
+  .get(adminController.deleteItems);  
+     
   
 router
   .route('/addRecipe')

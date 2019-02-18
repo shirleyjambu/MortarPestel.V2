@@ -131,6 +131,18 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });
+  },
+  deleteItems:(req,res) => {
+    let table = req.params.table;
+    let id = req.params.id;
+
+    //Code to delete items;
+
+    // Create a switch case for (table)
+
+    // delete using the id
+    
+
   }
 
 };
