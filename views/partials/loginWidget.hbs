@@ -1,8 +1,8 @@
 <div class="col s12 m4">
-  <div class="card Panel">
+  <div class="card medium" id="trendCard">
     <div class="card-content">
       <div>
-        <span class="card-title">Create an account or Login</span>
+        <span class="card-title"><b>Create an account or Login</b></span>
         <!-- Login Card-->
         
         {{#if message}}
@@ -35,10 +35,12 @@
             <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Enter password">
           </div>
           <input type="submit"></input>
+          
         </form>
       </div>
       <!-- New User -->
       <div>
+        <br>
         <a href="/addUser"><button id="new_user" class="waves-effect">Register</button></a>
       </div>  
     </div>
