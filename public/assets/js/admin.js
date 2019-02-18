@@ -1,5 +1,3 @@
-import { get } from "https";
-
 const getMeasurements = () => {
   $.ajax({
     url: "/user/getMeasurements",
