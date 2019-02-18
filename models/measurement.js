@@ -1,5 +1,6 @@
 const Sequelize =require("sequelize");
 
+
 module.exports = function(sequelize, DataTypes) {
   var Measurements = sequelize.define("Measurements", {
     // The measurement cannot be nulll and must be a interger.
@@ -22,5 +23,12 @@ module.exports = function(sequelize, DataTypes) {
   {
     timestamps: true
   });
+
+  
+/*Measurements.associate = function(models) {
+  Measurements.hasMany(models.Recipe);
+  
+};*/
+  
   return Measurements;
 };

@@ -1,0 +1,124 @@
+<h2>Modify Recipe</h2>
+<div class="row">
+    <div>
+  {{#if errors}}
+    {{#each errors}}
+    <span style="color:red;">{{this.msg}}</span><br>
+    {{/each}}
+  {{/if}}
+</div>
+<form id="addRecipe">
+    {{#if recipeData}}
+       <div class="row">
+       <input type="hidden" id="hRId" value="{{recipeData.id}}">  
+       <div class="input-field col s6">
+         <label for="recipe_name"></label>
+         <input type="text" id="recipe_name" name ="recipe_name" 
+         value="{{recipeData.recipe_name}}" class="validate">
+       </div>
+       <div class="input-field col s3 myOption">
+         <select id="cuisineDropdown" class="materialSelect">
+          <option value="0">Select Cuisine</option>
+          </select>
+          <input type="hidden" id="hCui" value="{{recipeData.cuisine_type}}">
+       </div>
+       <div class="input-field col s3 myOption">
+         <select id="categoryDropdown" class="materialSelect">
+          <option value="0">Select Category</option>
+          </select>
+          <input type="hidden" id="hCat" value="{{recipeData.cuisine_type}}">
+       </div>
+     </div>
+     <div>
+    <a target="_blank" href="">
+      <img class="thumbimg" src="{{recipeData.recipe_image}}" alt="Recipe Image">
+    </a>
+     </div>     
+       <div class="file-field input-field s6">
+          <div>
+           <input type="file" id="image-input" accept=".jpeg,.jpg,.png">
+           <label for="image-input">
+             <i class="material-icons prefix tooltipped" data-position="right" data-tooltip="Attach File">attach_file</i>
+           </label>
+         </div>
+         <div class="file-path-wrapper">
+           <input class="file-path validate" type="text">
+         </div>
+       </div>
+  
+     <!-- Create Ingredient Row -->
+      <div class="row">
+        <div><h6>Ingredients Required : <i class="material-icons prefix moreIngredients">add_circle</i></h6></div>
+        <div class="row">
+          <table id="ingredientTable" class="p1">
+          {{#if recipeData.Ingredients}}
+          {{#each recipeData.Ingredients}}
+          <tr class="ingRow">
+            <input type="hidden" id="hId{{@index}}" value={{this.id}}>
+            <td>
+              <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="ingredient_name{{@index}}" name="ingredient_name{{@index}}" type="text" value="{{this.ingredient_name}}" class="validate">
+                <label for="ingredient_name{{@index}}">Ingredients</label>
+              </div>
+            </td>
+            <td>
+              <div class="input-field">
+                <i class="material-icons prefix">phone</i>
+                <input id="ingredient_quantity{{@index}}" name="ingredient_quantity{{@index}}" type="text" class="validate" 
+                value="{{this.ingredient_quantity}}">
+                <label for="ingredient_quantity{{@index}}">Quantity</label>
+              </div>
+            </td>
+            <td>
+              <div class="input-field">
+                <select class="materialSelect browser-default mDropDown" id="measurementDropdown{{@index}}" name="measurementDropdown{{@index}}">
+                  <option value="0">Select Measurement</option>
+                </select>
+                <input type="hidden" id="mHid{{@index}}" value="{{this.ingredient_measurement}}">
+              </div>
+            </td>
+          </tr>
+          {{/each}}  
+          {{/if}}  
+          </table>
+        </div>
+
+      </div>
+     <!-- End of Ingredients-->
+     
+     <div class="col s12">
+       <div id="editor" name="recipe_instruction" style="height:200px;">
+       </div>
+       <input type="hidden" value="{{recipeData.recipe_instruction}}" id="recipe_notes">
+      </div>
+     <div class="col s6">
+       <button class="waves-effect waves-light" id="saveRecipe">Save Recipe
+         <i class="material-icons right">send</i>
+       </button>
+     </div>
+
+ </div>
+ {{/if}}
+</form>
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  var options = {
+  debug: 'info',
+  modules: {
+    toolbar: [
+      ['bold','italic','underline'],
+      [{header:[1,2,3,4,5,6]}],
+      ['color']
+    ]
+  },
+  placeholder: 'Recipe Instructions ...',
+  readOnly: false,
+  theme: 'snow'
+};
+var editor = new Quill('#editor', options);
+</script>
+<script src="/assets/js/editRecipe.js"></script>

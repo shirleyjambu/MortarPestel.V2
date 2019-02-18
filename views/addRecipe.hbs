@@ -17,16 +17,22 @@
        <div class="input-field col s3 myOption">
          
          <select id="cuisineDropdown" class="materialSelect">
-          <option value="">Select Cuisine</option>
+          <option value="0">Select Cuisine</option>
+          </select>
+       </div>
+       <div class="input-field col s3 myOption">
+         <select id="categoryDropdown" class="materialSelect">
+          <option value="0">Select Category</option>
           </select>
        </div>
      </div>
 
        <div class="file-field input-field s6">
          <div class="col s1">
-           <i class="material-icons prefix">attach_file</i>
            <input type="file" id="image-input">
-           <label for="image-input">Choose file</label>
+           <label for="image-input">
+             <i class="material-icons prefix tooltipped" data-position="right" data-tooltip="Attach File">attach_file</i>
+           </label>
          </div>
          <div class="file-path-wrapper">
            <input class="file-path validate" type="text" placeholder="Recipe Image">
