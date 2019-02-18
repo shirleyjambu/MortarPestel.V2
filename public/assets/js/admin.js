@@ -16,7 +16,7 @@ const getCuisine = () => {
   });
 };
 
-const getCatergory = () => {
+const getCategory = () => {
   $.ajax({
     url: "/user/getCategory",
     type: 'GET'
@@ -26,12 +26,10 @@ const getCatergory = () => {
 };
 
 
-
-
 const createMeasurementTable = (data) => {
   let newTable = $("<table style='width:50%'>");
-  data.forEach((measurement) => {
-    let $tr = createRow(measurement.measurement_name);
+  data.forEach((m) => {
+    let $tr = createRow(m.id,m.measurement_name,'MST');
     newTable.append($tr);
   });
 
@@ -41,7 +39,7 @@ const createMeasurementTable = (data) => {
 const createCuisineTable = (data) => {
   let newTable = $("<table style='width:50%'>");
   data.forEach((cuisine) => {
-    let $tr = createRow(cuisine.cuisine_name);
+    let $tr = createRow(cuisine.id, cuisine.cuisine_name, 'CUI');
     newTable.append($tr);
   });
 
@@ -51,25 +49,25 @@ const createCuisineTable = (data) => {
 const createCategoryTable = (data) => {
   let newTable = $("<table style='width:50%'>");
   data.forEach((category) => {
-    let $tr = createRow(category.categories_name);
+    let $tr = createRow(category.id,category.categories_name,'CAT');
     newTable.append($tr);
   });
   $("#catContainer").append(newTable);
 }
 
-const createRow = (name) => {
-    let $tr = $("<tr>");
+const createRow = (id,name,table) => {
+    let $tr = $("<tr>").addClass("itemRow").attr("table",table).attr("id",id);
     let $tdItem = $("<td>").html(name);
-    let $tdEdit = $("<td>").html(`<a href=""><i class="material-icons">edit</i></a>`);
-    let $tdDelete = $("<td>").html(`<a href="#" onclick="deleteRow();"><i class="material-icons">delete_forever</i></a>`);
+    let $tdEdit = $("<td>").html(`<a href=""><i class="material-icons edit">edit</i></a>`);
+    let $tdDelete = $("<td>").html(`<i class="material-icons delete">delete_forever</i>`);
     $tr.append($tdItem, $tdEdit, $tdDelete);
 
     return $tr;
   }
 
  
-  const deleteRow = () => {
-      Swal.fire({
+  const deleteRow = (table, id) => {
+        Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -79,7 +77,7 @@ const createRow = (name) => {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.value) {
-          return fetch(`/user/deleteItems/1/MST`)
+          return fetch(`/user/deleteItems/${id}/${table}`)
             .then(response => {
               if (!response.ok) {
                 throw new Error(response.statusText)
@@ -97,7 +95,7 @@ const createRow = (name) => {
             'success'
           )
         }
-      })
+      }) 
 
     }
 
@@ -109,6 +107,13 @@ $(document).ready(function () {
 
   getMeasurements();
   getCuisine();
-  
+  getCategory();
+
+  // Event handler for delete
+  $(document).on("click",".delete",function(){
+    let table = $(this).closest(".itemRow").attr("table");
+    let id = $(this).closest(".itemRow").attr("id");
+    deleteRow(table, id);
+  });
 
 });
