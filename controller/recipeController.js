@@ -63,12 +63,14 @@ module.exports = {
     }
   },
   getAllRecipes : (req, res) => {
-    console.log("IN GETTing all recipes");
-     db.Recipe.findAll({include: [
-      {
-          model: db.Ingredients,
-      }
-  ]})
+    console.log("Getting all recipes for specific user");
+            db.Recipe.findAll({include: [
+              {
+                  model: db.Ingredients,
+              }
+          ],where: {
+            UserId: req.user.id
+          }})
       .then((dbRecipes) => {
         console.log(dbRecipes);
         res.render("userRecipes",{layout:'user', recipeData:dbRecipes});
@@ -94,7 +96,10 @@ module.exports = {
 
 
     // add a record to the access table 
-
+  
+    db.Access.create({userId:user_id,recipeId:recipe_id})
+    .then((data) =>{res.send(data)})
+    .catch((err) => res.send(err));
 
   },
 

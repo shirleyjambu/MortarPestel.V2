@@ -1,18 +1,5 @@
 const { check } = require('express-validator/check');
 
-const isArray = (value) => {
-  return Array.isArray(value);
-}
-
-const notEmpty = (array) => {
-  return array.length > 0;
-}
-
-/*const gte =(param, num)=> { 
-  return param >= num;
-}*/
-
-
 module.exports.validateUser = [
   check('email').isEmail().withMessage('Invalid Email.'),
   check('userPassword').isLength({ min: 8 }).withMessage('Password should be atleast 8 characters.'),
@@ -26,13 +13,11 @@ module.exports.validateNewUser = [
   check('password').not().equals('passwordconfirm').withMessage('Passwords must match.')
 ];
 
-module.exports.validateItems = [
-  check('item').isLength({ min: 1 }).withMessage('Item cannot be empty.'),
+module.exports.validateMeasurements = [
+  check('measurement').isLength({ min: 1 }).withMessage('Measurement cannot be empty.'),
   
 ];
 module.exports.validateRecipe = [
   check('recipe_name').isLength({min:1}).withMessage('Enter recipe name'),
   check('recipe_instruction').isLength({ min: 1 }).withMessage('Enter recipe instruction'),
 ];
-
-
