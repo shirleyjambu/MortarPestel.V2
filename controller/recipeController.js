@@ -154,7 +154,7 @@ module.exports = {
     console.log("Retrieving Recipes");
     let rArray = [];
 
-    /*db.Access.findAll({
+    /*db.Shares.findAll({
       where :{userId:req.user.id}
     })
     .then(data => {

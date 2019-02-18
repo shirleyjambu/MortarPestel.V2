@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator/check');
 var db = require("./../models");
-const accessController = require("./accessController");
+const shareController = require("./shareController");
 
 const emptyObj =(obj) => {
   for(var key in obj) {

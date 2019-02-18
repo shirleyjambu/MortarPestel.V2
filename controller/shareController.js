@@ -1,10 +1,10 @@
-const db = require("./../models");
+const db = require("../models");
 
 
 module.exports = function(app) {
 app.post("/assets", function(req, res) {
 
-  db.Access.create({
+  db.Shares.create({
     userId: req.body.userId,
     recipeId: req.body.recipeId
   }).then(function(dbData) {

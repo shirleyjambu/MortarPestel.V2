@@ -150,7 +150,7 @@ $(document).ready(function(){
 
   // Event handler for add  Recipe
   $("#saveRecipe").on("click", function (event) {
-    alert("submit form");
+    
     event.preventDefault();
 
     // get image data (only works for single file, not multiple)

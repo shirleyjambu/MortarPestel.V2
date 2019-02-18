@@ -1,6 +1,6 @@
 const Sequelize =require("sequelize");
 module.exports = function(sequelize, DataTypes) {
-  var Accesses = sequelize.define("Accesses", {
+  var Shares = sequelize.define("Shares", {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,5 +22,5 @@ module.exports = function(sequelize, DataTypes) {
     },{
       timestamps: true
     });
-  return Accesses;
+  return Shares;
 };
