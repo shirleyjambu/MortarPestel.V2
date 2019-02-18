@@ -32,11 +32,15 @@ router
 
 
   router
-  .route('/addMeasurements')
-  .post(
-    validateMiddleware.validateMeasurements, 
-    adminController.addMeasurements);
+ .route('/addItems')
+ .post(
+   validateMiddleware.validateItems,
+    adminController.addItems);
 
+  router
+  .route('/deleteItems/:id?/:table?')
+  .get(adminController.deleteItems);  
+     
   
 router
   .route('/addRecipe')
@@ -49,5 +53,11 @@ router
   .route('/getPDF/:recipe_id')
   .get(pdfController.getPDF);    
 
+  router
+  .route('/shareRecipe/:recipe_id/:user_id')
+  .get(recipeController.shareRecipe);   
+  
+
+  
 
 module.exports = router;

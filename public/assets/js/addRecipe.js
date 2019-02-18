@@ -1,6 +1,109 @@
-$(document).ready(function(){
-  $('select').formSelect();
+//Counter for ingredient
+var ingCounter = 1;
+
+const getCuisine = () => {
+$.ajax(
+{url : "/user/getCuisine",
+  type : 'GET'}
+).then((data) =>{
+   createCuisineOptionTable(data);
+});
+};
+
+
+const createCuisineOptionTable = (data) =>{
+
+  data.forEach(item => {
+    let txt = item.cuisine_name;
+    var $newOpt = $("<option>").attr("value",'1').text(txt)
+    $("#cuisineDropdown").append($newOpt);
+
+    // fire custom event anytime you've updated select
+    $("#cuisineDropdown").trigger('contentChanged');
+  });
+}
+
+const createMeasurementOption =(id) =>{
+  $.ajax(
+    {url : "/user/getMeasurements",
+      type : 'GET'}
+    ).then((data) =>{
+      alert('to loop');
+      data.forEach(item => {
+        
+        let txt = item.measurement_name;
+        var $newOpt = $("<option>").attr("value",'1').text(txt)
+        $("#measurementDropdown"+id).append($newOpt);
+    
+        // fire custom event anytime you've updated select
+        $("#measurementDropdown"+id).trigger('contentChanged');
+      });
+
+      ingCounter++;
+
+      return $select;
+    
+    });
+
+}
+
+const addIngredientsRow =() =>{
+
+  let $tr = $("<tr>").addClass("ingRow");
+  let $tdIng = $("<td>");
+  $tdIng.html(`<div class="input-field">
+  <i class="material-icons prefix">account_circle</i>
+  <input id="ingredient_name" name="ingredient_name" type="text" class="validate">
+  <label for="ingredient_name">Ingredients</label>
+  </div>`);
+
+  let $tdQuan = $("<td>");
+  $tdQuan.html(`<div class="input-field">
+  <i class="material-icons prefix">phone</i>
+  <input id="ingredient_quantity" name="ingredient_quantity" type="text" class="validate">
+  <label for="ingredient_quantity">Quantity</label>
+  </div>`);
+
   
+  let $tdMeas= $("<td>");
+  let $div = $("<div>").addClass("input-field");
+  let $select = $("<select>").addClass("materialSelect browser-default").attr("id","measurementDropdown"+ingCounter);
+  let $option = $("<option>").val('0').text('Select Measurement');
+  $select.append($option);
+  $div.append($select);
+  $tdMeas.append($div);
+  
+  $tr.append($tdIng,$tdQuan,$tdMeas);
+  
+  $("#ingredientTable").append($tr);
+  
+  createMeasurementOption(ingCounter);
+  $('.materialSelect').formSelect();
+};
+
+
+$(document).ready(function(){
+
+  //Select for materialize
+  $('select').addClass('browser-default');
+  $('select').formSelect();
+  $('.materialSelect').formSelect();
+  
+  // setup listener for custom event to re-initialize on change
+  $('.materialSelect').on('contentChanged', function() {
+    $(this).formSelect();
+  });
+
+  //getMeasurements();  
+  getCuisine();
+  addIngredientsRow();
+
+  // Event handler for add Ingredient Row
+  $('.moreIngredients').on("click",function(){
+     addIngredientsRow();
+  })
+
+  // Event handler for add  Recipe
   $("#addRecipe").on("submit", function (event) {
     event.preventDefault();
 
