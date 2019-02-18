@@ -1,5 +1,7 @@
-<h4>Admin Page</h4>
+<div class="container my-container" id="adminCard">
+<div id="addNewText">Admin Page</div>
 <!-- Div for Messages/Error-->
+
 <div>
 {{#if itemCreated}}
 <span style="color:green;">{{itemCreated}}</span><br>
@@ -29,7 +31,7 @@
     <div class="input-field col s8  float right">
       <input placeholder="Enter Value" id="item" name="item" type="text" class="validate">
       <label for="Add Item"></label>
-      <button type="submit">Submit</button>
+      <button type="submit" id="submitAdmin">Submit</button>
     </div>
  </div>
 </form>
@@ -38,9 +40,9 @@
 <br>
 
 <!-- Display Items -->
-<div class="row">
-  <div class="col s12">
-    <ul class="tabs">
+<div class="row" >
+  <div class="col s12" >
+    <ul class="tabs" id="submitAdmin">
       <li class="tab col s3"><a href="#test1">Measurement</a></li>
       <li class="tab col s3"><a href="#test2">Cuisine</a></li>
       <li class="tab col s3"><a href="#test3">Category</a></li>
@@ -51,6 +53,7 @@
   <div id="test2" class="col s12"><div id="cContainer"></div></div>
   <div id="test3" class="col s12"><div id="catContainer"></div></div>
   <div id="test4" class="col s12"><div id="uContainer"></div></div>
+</div>
 </div>
 
 
