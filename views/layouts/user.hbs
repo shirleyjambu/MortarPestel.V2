@@ -20,49 +20,48 @@
     <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    
+
     <!-- Sweet alert -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.min.js"></script>
- <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.min.js"></script>
+    <link rel="stylesheet"
+        href=" https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.min.css">
 
     <!-- Your custom styles -->
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body id="welBody">
-    
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-  <!-- Materialize JS CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-  <!-- Include stylesheet -->
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-  <!-- nav-->
-  {{>navUser}}
+    <!-- Include stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-  <!--Header-->
-  <header id="welHead">
-      <div class="card-panel jumbotronStyle" id="welDiv">
-          <a href="/">
-              
-          </a>
-      </div>
-  </header>
-  
-  <!--Main Content-->
-  <main>
-     {{{body}}} 
-   
-  
-  <div id="chatBox">{{>chat}} </div>
+    <!-- nav-->
+    {{>navUser}}
+{{>header}}
 
-  </main>
+    <!--Header-->
+    <header>
 
-  <!--End of your Code-->
- 
+    </header>
+
+    <!--Main Content-->
+    <main>
+        {{{body}}}
+
+
+       
+
+    </main>
+
+    <!--End of your Code-->
+
 </body>
 {{!-- <script>$("#loggedUser").append(req.body.first_name)</script> --}}
+
 </html>
