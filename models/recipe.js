@@ -37,7 +37,12 @@ module.exports = function (sequelize, DataTypes) {
     },cuisine_type:{
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue:'NA'
+      defaultValue:'0'
+    },
+    category_type:{
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue:'0'
     },
     createdAt: {
       type: DataTypes.DATE,
