@@ -1,7 +1,11 @@
 /* common styles*/
 #homebody {
-  background-image: url("../images/bowl.jpg");
+  background-image: url("../images/asparagus.jpg");
   background-size: 100%;
+  /*  background: #FFFFFF;
+  background: -moz-linear-gradient(left, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
+  background: -webkit-linear-gradient(left, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
+  background: linear-gradient(to right, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);*/
 }
 
 .my-container {
@@ -21,7 +25,7 @@ h1 {
 }
 
 #searchbyIng {
-  background-color: rgb(236, 233, 233);
+  background-color: rgb(27, 27, 27);
   color: black;
 }
 
@@ -65,16 +69,24 @@ h1 {
 }
 
 #welDiv {
-  background-image: url("../images/bunch.jpg");
-  background-size: 100%;
-  font-family: 'Playfair Display', cursive;
-  font-weight: bold;
-
+  width: 80%;
+  height: 170px;
+  /* height of the background image? */
+  background: url(./../images/logo2.jpg);
+  margin-top: 12px;
+  margin-bottom: 12px;
+  -webkit-box-flex-group: inherit;
+  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  
 }
 
 #welBody {
-  background-color: rgba(238, 233, 226, 0.493);
-
+  background: #FFFFFF;
+  background: -moz-linear-gradient(left, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
+  background: -webkit-linear-gradient(left, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
+  background: linear-gradient(to right, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
 }
 
 #welHead {
@@ -250,13 +262,43 @@ h1 {
   background: #555;
 }
 
-footer{
+footer {
   color: black;
   text-align: center;
 }
-#chatBox{
+
+#chatBox {
   float: right;
 }
 
-select{
-  background-color: rgba(238, 233, 226, 0.493)};
+div#wrapperHeader {
+  width: 100%;
+  height: 170px;
+  /* height of the background image? */
+  background: url(./../images/logo2.jpg);
+  margin-top: 12px;
+  margin-bottom: 12px;
+  -webkit-box-flex-group: inherit;
+  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+}
+
+#trendCard {
+  /* background-image: url("../images/boardbackground.jpg");
+   background-size: 400%;*/
+  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  background: #FFFFFF;
+  background: -moz-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: -webkit-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+}
+
+.btndark {
+  text-align: center;
+}
+
+#boxTrend {
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 500%;
+}
