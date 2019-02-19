@@ -1,4 +1,3 @@
-
 <div id="addNewText">Add New Recipe</div>
 <div class="row">
     <div>
@@ -17,18 +16,23 @@
          <input placeholder="Recipe Name" type="text" id="recipe_name" name ="recipe_name" class="validate">
        </div>
        <div class="input-field col s3 myOption">
-         
-         <select id="cuisineDropdown" class="materialSelect" >
-          <option value="">Select Cuisine</option>
+         <select id="cuisineDropdown" class="materialSelect">
+          <option value="0">Select Cuisine</option>
+          </select>
+       </div>
+       <div class="input-field col s3 myOption">
+         <select id="categoryDropdown" class="materialSelect">
+          <option value="0">Select Category</option>
           </select>
        </div>
      </div>
 
        <div class="file-field input-field s6">
          <div class="col s1">
-           <i class="material-icons prefix">attach_file</i>
            <input type="file" id="image-input">
-           <label for="image-input"></label>
+           <label for="image-input">
+             <i class="material-icons prefix tooltipped" data-position="right" data-tooltip="Attach File">attach_file</i>
+           </label>
          </div>
          <div class="file-path-wrapper">
            <input class="file-path validate" type="text" placeholder="Recipe Image">
@@ -37,18 +41,17 @@
   
      <!-- Create Ingredient Row -->
       <div class="row">
-        
+        <div><h6>Ingredients Required : <i class="material-icons prefix moreIngredients">add_circle</i></h6></div>
         <div class="row">
           <table id="ingredientTable" class="p1">
 
           </table>
         </div>
-
       </div>
      <!-- End of Ingredients-->
      
      <div class="col s12" id="quillBar">
-       <div id="editor" name="recipe_instruction" style="height:100px;">
+       <div id="editor" name="recipe_instruction" style="height:250px;color:black;">
        </div>
      </div>
      <div class="col s6">

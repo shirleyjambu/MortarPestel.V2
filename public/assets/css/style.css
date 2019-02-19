@@ -246,6 +246,17 @@ footer {
   background-size: 500%;
 }
 
+.thumbimg {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
+
+/* Add a hover effect (blue shadow) */
+.thumbimg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
 #searchMain {
   color: rgb(196, 193, 193);
   font-weight: bolder;
@@ -350,4 +361,9 @@ footer {
   background: -moz-linear-gradient(left, #D9D9D9 0%, #34527A 50%, #DEDEDE 100%);
   background: -webkit-linear-gradient(left, #D9D9D9 0%, #34527A 50%, #DEDEDE 100%);
   background: linear-gradient(to right, #D9D9D9 0%, #34527A 50%, #DEDEDE 100%);
+}
+#recipeClick {
+  color:rgb(8, 30, 59);
+  font-weight: 600;
+  text-shadow: 2px 3px 3px rgba(207, 203, 203, 0.404);
 }

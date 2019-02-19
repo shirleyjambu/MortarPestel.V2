@@ -42,7 +42,59 @@ module.exports = {
       return false;
     }
 
+    console.log(recipeData);
     if(recipeData){
+
+      
+      let recipe = recipeData.dataValues;
+      let name = recipe.recipe_name;
+      let instruction = recipe.recipe_html;
+      
+     // Embed a font, set the font size, and render some text
+     doc.font('Times-Roman')
+     .fontSize(20)
+     .text(name);
+      
+          // Embed a font, set the font size, and render some text
+          /*doc.font('Times-Roman')
+          .fontSize(15)
+          .text('Ingredients:');
+    
+          let ingArr= recipe.Ingredients;
+          for(let i=1; i<= ingArr.length ;i ++){
+            console.log('Here ---------------------');
+            console.log(JSON.parse(ingArr[i].Ingredients));
+
+            let str="";
+            /*let str = i + ". " +ingArr[i].ingredient_name + " " + ingArr[i].ingredient_quantity + " " + ingArr[i].ingredient_measurement;
+
+            doc.font('Times-Roman')
+            .fontSize(15)
+            .text(str);
+          }*/
+          
+    
+    doc.font('Times-Roman')
+    .fontSize(12)
+    .text(instruction);
+
+    doc.pipe(res);
+    doc.end(); 
+      
+     
+    }
+  }
+}
+
+
+      /*Add an image, constrain it to a given size, and center it vertically and horizontally
+      doc.image('./../public/assets/images/logo3.png', {
+        fit: [100, 100],
+        align: 'center',
+        valign: 'center'
+      });*/
+
+
       /*console.log(`
     
         
@@ -50,33 +102,17 @@ module.exports = {
     
       `);*/
 
-      const [compileErr, content] = await promiseHandler(compile('recipePdf',recipeData.dataValues));
+      /*const [compileErr, content] = await promiseHandler(compile('recipePdf',recipeData.dataValues));
     
       if(compileErr){
         return compileErr;
       }
 
       if(content){
-        console.log(`
-      
-      STEP 3 : Content
-      
-      ${content}
-      
-      
-      `); 
+         
 
-            // Embed a font, set the font size, and render some text
-            doc.font('Times-Roman')
-            .fontSize(20)
-            .text(content, 100, 100);
-            doc.pipe(res);
-            doc.end(); 
+            
       
         //    console.log("STEP 4 : PDF CREATED");
       
-      }
-     
-    }
-  }
-} 
+      }*/

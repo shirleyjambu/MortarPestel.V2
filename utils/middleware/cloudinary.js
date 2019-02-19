@@ -23,12 +23,13 @@ module.exports = function(req, res, next) {
         console.log(result);
         // rewrite req.body so it's available in the next set of middleware
         req.body.recipe_image = result.secure_url;
+        req.body.id = fields.recipe_id;
         req.body.recipe_name = fields.recipe_name;
         req.body.recipe_instruction = fields.recipe_instruction;
         req.body.recipe_html = fields.recipe_html;
         req.body.ingredient_list = fields.ingredient_list.split(',');
-
-        //req.body.cuisine_type = fields.cuisine_type;
+        req.body.cuisine_type = fields.cuisine_type;
+        req.body.category_type = fields.category_type;
         
         console.log(req.body);
 
@@ -36,13 +37,13 @@ module.exports = function(req, res, next) {
         next();
       });
     } else {
+        req.body.id = fields.recipe_id;
         req.body.recipe_name = fields.recipe_name;
         req.body.recipe_instruction = fields.recipe_instruction;
         req.body.recipe_html = fields.recipe_html;
         req.body.ingredient_list = fields.ingredient_list.split(',');
-
-        //req.body.cuisine_type = fields.cuisine_type;
-
+        req.body.cuisine_type = fields.cuisine_type;
+        req.body.category_type = fields.category_type;
         console.log(req.body);
 
         // send next middleware
