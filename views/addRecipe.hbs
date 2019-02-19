@@ -1,5 +1,4 @@
-
-<h2>Add New Recipe</h2>
+<div id="addNewText">Add New Recipe</div>
 <div class="row">
     <div>
   {{#if errors}}
@@ -8,63 +7,65 @@
     {{/each}}
   {{/if}}
 </div>
+<div class="container my-container" id="recipeContainer">
 <form id="addRecipe">
     
      <div class="row">
        <div class="input-field col s6">
-         <label for="recipe_name"></label>
+         <label for="recipe_name" ></label>
          <input placeholder="Recipe Name" type="text" id="recipe_name" name ="recipe_name" class="validate">
+       </div>
+       <div class="input-field col s3 myOption">
+         <select id="cuisineDropdown" class="materialSelect">
+          <option value="0">Select Cuisine</option>
+          </select>
+       </div>
+       <div class="input-field col s3 myOption">
+         <select id="categoryDropdown" class="materialSelect">
+          <option value="0">Select Category</option>
+          </select>
        </div>
      </div>
 
        <div class="file-field input-field s6">
          <div class="col s1">
-           <i class="material-icons prefix">attach_file</i>
-           <input type="file">
+           <input type="file" id="image-input">
+           <label for="image-input">
+             <i class="material-icons prefix tooltipped" data-position="right" data-tooltip="Attach File">attach_file</i>
+           </label>
          </div>
          <div class="file-path-wrapper">
            <input class="file-path validate" type="text" placeholder="Recipe Image">
          </div>
        </div>
+  
+     <!-- Create Ingredient Row -->
+      <div class="row">
+        <div><h6>Ingredients Required : <i class="material-icons prefix moreIngredients">add_circle</i></h6></div>
+        <div class="row">
+          <table id="ingredientTable" class="p1">
 
-     <div>
-       <h6>Ingredients</h6>
-     </div>
-     <div class="row">
-         <div class="row">
-           <div class="input-field col s3">
-             <i class="material-icons prefix">account_circle</i>
-             <input id="icon_prefix" type="text" class="validate">
-             <label for="icon_prefix">Ingredients</label>
-           </div>
-           <div class="input-field col s3">
-             <i class="material-icons prefix">phone</i>
-             <input id="icon_telephone" type="tel" class="validate">
-             <label for="icon_telephone">Quantity</label>
-           </div>
-           <div class="input-field col s3 myOption">
-             <select>
-               <option value="" disabled selected>Measurement</option>
-               <option value="1">Cups</option>
-               <option value="2">Oz</option>
-               <option value="3">Grams</option>
-             </select>
-             <label>Select Measurement</label>
-           </div>
-           <i class="material-icons prefix moreIngredients">add_circle</i>
-     </div>
-     <div class="col s8">
-       <div id="editor" name="recipe_instruction" style="height:100px;">
+          </table>
+        </div>
+      </div>
+     <!-- End of Ingredients-->
+     
+     <div class="col s12" id="quillBar">
+       <div id="editor" name="recipe_instruction" style="height:250px;color:black;">
        </div>
      </div>
+     
      <div class="col s6">
-       <button class="waves-effect waves-light" type="submit" name="action">Add Recipe
-         <i class="material-icons right">send</i>
+       <button class="waves-effect waves-light" id="addBtnRecipe" type="submit" name="action">Add Recipe
+         <i class="material-icons right">touch_app</i>
        </button>
      </div>
 
  </div>
+ <br><br>
 </form>
+
+</div>
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
@@ -85,21 +86,4 @@
 };
 var editor = new Quill('#editor', options);
 </script>
-
-<script>
- document.addEventListener('DOMContentLoaded', function () {
-   var elems = document.querySelectorAll('select');
-   var instances = M.FormSelect.init(elems, options);
- });
- // Or with jQuery
- $(document).ready(function () {
-   $('select').formSelect();
- });
-</script>
 <script src="/assets/js/addRecipe.js"></script>
-
-
-{{!-- adding more ingredients  --}}
-<script>
-  
-</script>

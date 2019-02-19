@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator/check');
 var db = require("./../models");
+const recipeController = require("./recipeController");
 
 const emptyObj =(obj) => {
   for(var key in obj) {
@@ -56,13 +57,14 @@ module.exports = {
       // });    
     }
   },
+  
   findByEmail: function (req, res) {
     db
       .User
       .findOne({
         attributes: ["id", "firstName", "lastName", "email", "password"],
         where: {
-          email: req.body.email
+          email: req.params.email
         }/*,
         include: [db.Posts]*/
       })
@@ -75,9 +77,50 @@ module.exports = {
           console.log(err);
           res.status(404).json(err);
         }
-
-        
-        
       });
+  },
+  getSessionUser:function(req,res){
+    res.send(req.user);
+  },
+
+  shareRecipe: function (req, res){
+    console.log(req.params.email);
+    db
+      .User
+      .findOne({
+        attributes: ["id", "firstName", "lastName", "email", "password"],
+        where: {
+          email: req.params.email
+        } 
+      })
+      .then( (dbUsers) => {
+        console.log("Found DB User");
+        console.log(dbUsers.id);
+        console.log(req.params.recipe_id);
+
+        let recipe_id = req.params.recipe_id;
+        let user_id = dbUsers.id;
+        
+        if (dbUsers){
+          db.Shares.create({
+            userId: user_id,
+            recipeId: recipe_id
+          }).then(function(dbData) {
+            console.log('Shared Successfully.');
+          })
+            .catch(function(err) {
+              console.log('Error in Sharing');
+            });   
+         }
+         res.send(dbUsers);
+        }
+      )
+      .catch((err) => {
+        if(err){
+          console.log(err);
+          res.status(404).json(err);
+        }
+      });
+   
   }
 };

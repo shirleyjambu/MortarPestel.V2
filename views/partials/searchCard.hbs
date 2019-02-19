@@ -1,13 +1,13 @@
 <div class="col s12 m4">
-  <div class="card medium">
+  <div class="card medium" id="trendCard">
     <div class="card-content">
-      <span class="card-title">Get Cooking!</span>
+      <span class="card-title"><b>Get Cooking!</b></span>
       <p>Perfect your preferred cuisine!</p>
       <!-- form -->
       <form action="/quickSearch?ingredient" method="GET">
         <div class="input-field">
           <input placeholder="Enter Ingredient" id="ingredient" name="ingredient" type="text" class="validate">
-          <button type="submit" class="btn dark" id="searchbyIng">Quick Search by Ingredient</button>
+          <button type="submit" class="btndark" id="searchbyIng">Quick Search</button>
         </div>
         <div id="errorMsg">{{errorMsg}}</div>
       </form>

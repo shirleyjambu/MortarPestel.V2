@@ -1,19 +1,23 @@
 /* common styles*/
 #homebody {
-  background-image: url("../images/bowl.jpg");
+  background-image: url("../images/asparagus.jpg");
   background-size: 100%;
+  /*  background: #FFFFFF;
+  background: -moz-linear-gradient(left, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
+  background: -webkit-linear-gradient(left, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);
+  background: linear-gradient(to right, #FFFFFF 0%, #D9D9D9 51%, #BCC0C4 100%);*/
 }
 
 .my-container {
   width: 90%;
 }
-
+/*
 h1 {
   font-family: 'Princess Sofia', cursive;
   text-shadow: 4px 4px 4px rgb(255, 255, 255);
   font-size: 80px;
   color: rgb(43, 54, 35);
-}
+}*/
 
 #prefBody {
   background-image: url("../images/chopping.jpg");
@@ -21,8 +25,10 @@ h1 {
 }
 
 #searchbyIng {
-  background-color: rgb(236, 233, 233);
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 100%;
   color: black;
+  font-weight: 500;
 }
 
 #errorMsg {
@@ -36,52 +42,66 @@ h1 {
 /* Home Page */
 
 
-/* Welcome User */
+/* Welcome User
 #logoutBtn {
   margin: 5px;
   float: right;
   color: whitesmoke;
   font-size: 20px;
-}
+} */
 
 #allergiesSpan {
-  color: red;
+  color: rgb(10, 175, 59);
+  text-shadow: 2px 3px 3px rgba(61, 59, 59, 0.651);
+  font-size: 17px;
+
+  
 }
 
 #dietSpan {
-  color: red;
+  color: rgb(10, 175, 59);
+  text-shadow: 2px 3px 3px rgba(61, 59, 59, 0.651);
+  font-size: 17px;
+  
 }
 
-#favTitle {
-  font-size: 20px;
-}
 
 .favIcon {
   color: red;
 }
 
 .chip a {
-  color: red;
+  color: rgb(12, 11, 11);
+ }
+::placeholder {
+  color: rgb(37, 36, 36);
+  
 }
-
+ /*
 #welDiv {
-  background-image: url("../images/bunch.jpg");
-  background-size: 100%;
-  font-family: 'Playfair Display', cursive;
-  font-weight: bold;
-
-}
+  width: 100%;
+  height: 170px;
+  /* height of the background image? 
+  background: url(./../images/logo2.jpg);
+  margin-top: 12px;
+  margin-bottom: 12px;
+  -webkit-box-flex-group: inherit;
+  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  
+}*/
 
 #welBody {
-  background-color: rgba(238, 233, 226, 0.493);
-
+background-image: url("../images/dark-blur.jpg");
+background-size: 100%;
 }
-
-#welHead {
-  background-color: transparent;
-  color: rgb(15, 15, 15);
+#quickBack {
+  background: #FFFFFF;
+  background: -moz-linear-gradient(left, #FFFFFF 0%, #626566 51%, #FFFFFF 100%);
+  background: -webkit-linear-gradient(left, #FFFFFF 0%, #626566 51%, #FFFFFF 100%);
+  background: linear-gradient(to right, #FFFFFF 0%, #626566 51%, #FFFFFF 100%);
 }
-
 
 /* Recipes */
 .card-action-right {
@@ -89,7 +109,7 @@ h1 {
 }
 
 .card__date {
-  background: #08c;
+  background: rgb(35, 169, 236);
   position: absolute;
   top: 20px;
   right: 20px;
@@ -146,12 +166,12 @@ h1 {
 /* Contact */
 
 nav {
-  background-color: whitesmoke;
+  background-color: rgb(240, 4, 4);
   color: black;
 }
 
 .page-footer {
-  background-color: whitesmoke;
+  background-color: rgb(228, 13, 13);
 }
 
 .contactBackground {
@@ -161,13 +181,13 @@ nav {
 .card {
   border-radius: 1.5em;
   /*background-color:rgba(255, 208, 0, 0.274);*/
-  background-color: whitesmoke;
+  background-color: rgba(189, 173, 173, 0.349);
   color: rgb(43, 54, 35);
   font-family: 'Playfair Display', cursive;
   font-weight: bold;
 
 }
-
+/*
 main {
   color: rgb(43, 54, 35);
   font-family: 'Playfair Display', cursive;
@@ -176,11 +196,11 @@ main {
 
 /* pref page style */
 #prefForm {
-  padding: 25px;
+  padding: 45px;
 }
 
 .favIcon {
-  color: red;
+  color: rgb(32, 138, 18);
 }
 
 h1 {
@@ -190,20 +210,23 @@ h1 {
 }
 
 #pref {
-  background-color: rgba(58, 57, 57, 0.61);
+  background-color: rgba(27, 206, 57, 0.61);
 
 }
 
 .collapsible-header {
-  background-color: rgba(231, 229, 229);
+ background-color: rgb(248, 244, 244);
 }
 
 #prefBar {
-  background-color: rgba(116, 113, 113, 0.712);
-  color: whitesmoke;
-  font-size: bold;
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 180%;
+  color: rgb(85, 83, 83);
+  font-weight: 500;
+  text-shadow: 2px 3px 3px rgba(10, 10, 10, 0.555);
+  font-size: 20px;
 }
-
+/*
 #myKitchen {
   font-family: 'Princess Sofia', cursive;
   background-color: transparent;
@@ -211,7 +234,7 @@ h1 {
   color: rgb(143, 140, 140);
   text-shadow: 4px 4px 4px rgb(40, 66, 26);
   font-size: 75px;
-}
+}*/
 
 .card-title {
   display: inline-block;
@@ -222,13 +245,13 @@ h1 {
   font-size: 16px !important;
   background-color: transparent;
 }
-
+/*
 #title {
   color: rgb(19, 18, 18);
   font-weight: bold;
   font-family: 'Handlee', cursive;
 
-}
+}*/
 
 /* width */
 ::-webkit-scrollbar {
@@ -237,20 +260,158 @@ h1 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgb(8, 8, 8);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(20, 20, 20);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(17, 17, 17);
 }
 
-footer{
+footer {
   color: black;
   text-align: center;
+}
+
+#chatBox {
+  float: right;
+}
+
+#wrapperHeader {
+  width: 100%;
+  height: 170px;
+  /* height of the background image? */
+  background: url(../images/logo2.jpg);
+  margin-top: 12px;
+  margin-bottom: 12px;
+  -webkit-box-flex-group: inherit;
+  box-shadow: 3px 3px 10px 3px rgb(36, 35, 35);
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+ 
+}
+
+#trendCard {
+  /* background-image: url("../images/boardbackground.jpg");
+   background-size: 400%;*/
+  box-shadow: 3px 3px 10px 3px rgb(17, 17, 17);
+  background: #FFFFFF;
+  background: -moz-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: -webkit-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+}
+
+.btndark {
+  text-align: center;
+}
+
+#boxTrend {
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 500%;
+}
+
+.thumbimg {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
+
+/* Add a hover effect (blue shadow) */
+.thumbimg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+#searchMain {
+  color: rgb(221, 214, 214);
+  font-weight: bolder;
+  text-shadow: 2px 3px 3px black;
+  font-size: 20px;
+  
+}
+#searchMain1 {
+  color: rgb(206, 205, 205);
+  font-weight: bolder;
+  text-shadow: 2px 3px 3px rgba(26, 25, 25, 0.671);
+}
+#userNavPic {
+  background-size: 100%;
+  background-image: url("../images/greens.jpg");
+}
+#recipeContainer {
+  background-color: rgba(255, 255, 255, 0.904);
+  box-shadow: 3px 3px 10px 3px rgb(26, 25, 25);
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  color: black;
+}
+#addNewText {
+  color: rgb(10, 175, 59);
+  font-weight: 500;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.4px;
+  word-spacing: -1.2px;
+ margin-left: 70px;
+  font-size: 20px;
+  text-shadow: 2px 3px 3px rgba(99, 96, 96, 0.664);
+}
+#quillBar {
+  background-color: rgba(255, 255, 255, 0.904);
+  color: rgb(241, 240, 240);
+  box-shadow: 3px 3px 10px 3px rgb(31, 30, 30);
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+}
+#prefModal {
+  box-shadow: 3px 3px 10px 3px rgb(15, 15, 15);
+  background: #FFFFFF;
+  background: -moz-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: -webkit-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  color:rgb(102, 99, 99);
+}
+#sideNavIcon {
+  color: rgb(10, 175, 59);
+  font-weight: bolder;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+#addBtnRecipe {
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 180%;
+}
+#adminCard{
+  box-shadow: 3px 3px 10px 3px rgb(15, 15, 15);
+  background: #F7F7F7;
+  background: -moz-linear-gradient(-45deg, #F7F7F7 0%, #BFC5C7 54%, #F2F2F2 100%);
+  background: -webkit-linear-gradient(-45deg, #F7F7F7 0%, #BFC5C7 54%, #F2F2F2 100%);
+  background: linear-gradient(135deg, #F7F7F7 0%, #BFC5C7 54%, #F2F2F2 100%);
+}
+#ingredientTable {
+  color: rgb(22, 21, 21);
+}
+#adminChoice {
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 160%; 
+  color: rgb(5, 5, 5);
+  font-weight: 600;
+  text-shadow: 2px 3px 3px rgba(190, 186, 186, 0.671);
+}
+#submitAdmin {
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 160%; 
+  color: rgb(5, 5, 5);
+  font-weight: 600;
+  text-shadow: 2px 3px 3px rgba(190, 186, 186, 0.671);
+}
+
+#recipeClick {
+  color:rgb(9, 111, 245);
+  font-weight: 600;
+  text-shadow: 2px 3px 3px rgba(207, 203, 203, 0.404);
 }

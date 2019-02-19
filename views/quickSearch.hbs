@@ -1,7 +1,9 @@
+
+
 <form action="/quickSearch?ingredient" method="GET">
-  <div class="input-field">
-    <input placeholder="Enter Ingredient" id="ingredient" name="ingredient" type="text" class="validate">
-    <button type="submit" class="btn dark" id="searchbyIng">Quick Search by Ingredient</button>
+  <div class="input-field" id="textIngred" >
+    <input placeholder="Enter Ingredient" name="ingredient" type="text" class="validate">
+    <button type="submit" class="btn dark" id="searchbyIng">Quick Search</button>
   </div>
   <div id="errorMsg">{{errorMsg}}</div>
 </form>
@@ -15,7 +17,7 @@
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{recipe.label}}<i class="material-icons right">more_vert</i></span>
-      <p><a href="{{recipe.url}}" target="new">Click for Recipe</a></p>
+      <p><a href="{{recipe.url}}" target="new" id="recipeClick">Click for Recipe</a></p>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">

@@ -1,22 +1,54 @@
+<div id="addNewText">My Own Recipes</div>
+{{#if message}}
+{{message}}
+{{/if }}
 <div class="row">
   {{#each recipeData}}
+  
   <div class="col s12 m4 l4 p-2">
     <div class="card small">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="{{this.image}}">
+      <img class="activator" src="{{this.recipe_image}}">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{this.recipe_name}}<i class="material-icons right">more_vert</i></span>
-      <p><a href="user/shareRecipe">Share Recipe</a></p>
+      <p><a href="user/shareRecipe"></a></p>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
-        {{this.recipe_name}}<i class="material-icons right">close</i>
+        Ingredients<i class="material-icons right">close</i>
       </span>
-      {{this.recipe_html}}
+      
+      <ol>
+        {{#each this.Ingredients}}
+          <li>{{this.ingredient_name}}&nbsp;&nbsp;
+            {{this.ingredient_quantity}}&nbsp;&nbsp;
+            {{this.ingredient_measurement}}
+          </li>
+      {{/each}}
+      </ol>
+    </div>
+    <div class="card-action">
+      <a class="tooltipped" data-position="right" data-tooltip="Download" href="/api/getPDF/{{this.id}}"><i class="material-icons">cloud_download</i></a>
+      <a class="tooltipped" data-position="right" data-tooltip="Edit" href="/user/getRecipe/{{this.id}}"><i class="material-icons">edit</i></a>
+      <a class="tooltipped" data-id="{{this.id}}" data-position="right" data-tooltip="Delete" href="#" onclick="deleteRecipe({{this.id}})"><i class="material-icons">delete_forever</i></a>
+      <a id="menu" class="tooltipped modal-trigger" data-position="right" data-tooltip="View" href="#modal1"><i class="material-icons">view_headline</i></a>
+      <a class="tooltipped" data-position="right" data-tooltip="Share" href="#" onclick="shareRecipe({{this.id}})"><i class="material-icons">share</i></a>
     </div>
   </div>
-
 </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h5><u><i>Instructions</i></u></h5>
+      <p>{{this.recipe_html}}</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+  <!--End Modal -->
+
 {{/each}}
 </div>
+<script src="/assets/js/userRecipes.js"></script>
