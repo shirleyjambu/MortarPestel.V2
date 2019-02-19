@@ -151,7 +151,7 @@ $(document).ready(function(){
     
 
     //console.log(delta);
-    var text = editor.getText();
+    var jText = editor.getText();
     //console.log(text);
     var justHtml = editor.root.innerHTML;
     //console.log(justHtml);
@@ -181,7 +181,7 @@ $(document).ready(function(){
     form.append('cuisine_type',$("#cuisineDropdown option:selected").val());
     form.append('category_type',$("#categoryDropdown option:selected").val());
     form.append('recipe_instruction', JSON.stringify(content));
-    form.append('recipe_html', justHtml);
+    form.append('recipe_html', jText);
     form.append('ingredient_list', JSON.stringify(newIngredient));
 
     if (imageData) {
