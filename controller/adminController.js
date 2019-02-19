@@ -78,7 +78,7 @@ module.exports = {
             password: req.body.password
           };
 
-          db.User.create(user).then(function(dbUser) {
+          db.User.update(user).then(function(dbUser) {
             res.render("adminMain",{
               layout: 'user',
               itemCreated: 'User has been updated in the database'

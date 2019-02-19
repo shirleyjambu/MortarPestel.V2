@@ -42,7 +42,7 @@ const createCuisineTable = (data) => {
     let $tr = createRow(cuisine.id, cuisine.cuisine_name, 'CUI');
     newTable.append($tr);
   });
-
+  
   $("#cContainer").append(newTable);
 }
 
@@ -116,4 +116,23 @@ $(document).ready(function () {
     deleteRow(table, id);
   });
 
+  const getUser = () => {
+    $.ajax({
+      url: "/user/getUser",
+      type: 'GET'
+    }).then((data) => {
+      createUserTable(data);
+    });
+   };
+   
+   const createUserTable = (data) => {
+    let newTable = $("<table style='width:50%'>");
+    data.forEach((m) => {
+      let $tr = createRow(m.id,m.firstName +" " +  m.lastName +" " + m.userType,'UT');
+      newTable.append($tr);
+    });
+   
+    $("#uContainer").append(newTable);
+   }
+   getUser();
 });

@@ -14,9 +14,9 @@ module.exports.validateNewUser = [
 ];
 
 module.exports.validateItems = [
-  check('measurement').isLength({ min: 1 }).withMessage('Measurement cannot be empty.'),
-  
-];
+  check('item').isLength({ min: 1 }).withMessage('Item cannot be empty.'),
+ 
+ ];
 module.exports.validateRecipe = [
   check('recipe_name').isLength({min:1}).withMessage('Enter recipe name'),
   check('recipe_instruction').isLength({ min: 1 }).withMessage('Enter recipe instruction'),
