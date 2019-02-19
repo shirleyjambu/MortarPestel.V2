@@ -17,7 +17,7 @@ module.exports= {
   },
   "production": {
     "username": "hk50a43umd6tkv2s",
-    "password": process.env.EB_PASS_PROD,
+    "password": "qepmutwhuvmx3yk0",
     "database": "aqt6r0ym55rb8vop",
     "host": "pwcspfbyl73eccbn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
