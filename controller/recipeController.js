@@ -74,24 +74,6 @@ module.exports = {
       res.send(dbRecipe);
     }
   },
-<<<<<<< HEAD
-  getAllRecipes : (req, res) => {
-    console.log("Getting all recipes for specific user");
-            db.Recipe.findAll({include: [
-              {
-                  model: db.Ingredients,
-              }
-          ],where: {
-            UserId: req.user.id
-          }})
-      .then((dbRecipes) => {
-        console.log(dbRecipes);
-        res.render("userRecipes",{layout:'user', recipeData:dbRecipes});
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-=======
   updateRecipe: async function (req, res) {
     const errors = validationResult(req);
     console.log('--------------- Into Update Recipe ------------------');
@@ -99,7 +81,6 @@ module.exports = {
       res.render("editRecipe", {
         layout: 'user',
         errors: errors.array()
->>>>>>> 37517c77bc974c552374990ee0b812467e812b54
       });
     } else {
       let recipe = req.body;
@@ -108,13 +89,6 @@ module.exports = {
       let recipe_id = req.params.id;
       console.log('Updating for id :' + recipe_id);
 
-<<<<<<< HEAD
-    // add a record to the access table 
-  
-    db.Accesses.create({userId:user_id,recipeId:recipe_id})
-    .then((data) =>{res.send(data)})
-    .catch((err) => res.send(err));
-=======
       // Create Recipe
       const [recipeError, dbRecipe] = await promiseHandler(
         db.Recipe.update(recipe,
@@ -136,7 +110,6 @@ module.exports = {
           }]
         });
       }
->>>>>>> 37517c77bc974c552374990ee0b812467e812b54
 
       if (dbRecipe) {
         //Get ingredientlist

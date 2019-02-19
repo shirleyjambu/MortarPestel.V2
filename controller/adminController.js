@@ -137,12 +137,21 @@ module.exports = {
     let id = req.params.id;
 
     //Code to delete items;
-
+    db.Cuisines.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function (dbRecipe) {
+        // res.send(dbRecipe);
+        res.send(dbCuisines)
+      });
+  }
     // Create a switch case for (table)
 
     // delete using the id
     
 
-  }
+  
 
 };

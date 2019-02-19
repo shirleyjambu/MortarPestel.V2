@@ -114,6 +114,7 @@ $(document).ready(function () {
     let table = $(this).closest(".itemRow").attr("table");
     let id = $(this).closest(".itemRow").attr("id");
     deleteRow(table, id);
+    deleteItems();
   });
 
   const getUser = () => {
