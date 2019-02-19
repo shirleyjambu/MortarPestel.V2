@@ -135,14 +135,68 @@ module.exports = {
   deleteItems:(req,res) => {
     let table = req.params.table;
     let id = req.params.id;
-
+    console.log("table: " + table);
     //Code to delete items;
-
-    // Create a switch case for (table)
-
-    // delete using the id
     
-
+    switch(table){
+      
+     case ("MST"):
+    
+       db.Measurements.destroy(
+         {
+           where :{id:id}
+         }
+       )
+       .then((dbData) => {
+         res.render("adminMain",{layout:'user',itemCreated:'  Item has been deleted. '});
+        //return(dbData);
+        
+        })
+       .catch(err => {
+        console.log(err);
+        return err;
+      });
+      
+       break;
+      case("CAT"):
+       db.Category.destroy(
+         {
+           where :{id : id}
+         }
+       )
+       .then((dbData) => {
+        return dbData;
+        })
+       .catch(err => {
+        return err;
+      });
+       break;
+       case("CUI"):
+       db.Cuisines.destroy(
+         {
+           where :{id : id}
+         }
+       )
+       .then((dbData) => {
+        return dbData;
+        })
+       .catch(err => {
+        return err;
+      });
+       break;
+       case("UT"):
+       db.User.destroy(
+         {
+           where:{id:id}
+         }
+       )
+       .then((dbData) => {
+        return dbData;
+        })
+       .catch(err => {
+        return err;
+      });
+   }
   }
 
 };

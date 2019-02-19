@@ -37,4 +37,6 @@ router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
 
 router.get("/getRecipe/:recipe_id",recipeController.getRecipeToEdit);
 
+router.get("/deleteItems/:id/:table",adminController.deleteItems);
+
 module.exports = router;

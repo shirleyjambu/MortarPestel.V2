@@ -32,13 +32,13 @@
       <a class="tooltipped" data-position="right" data-tooltip="Download" href="/api/getPDF/{{this.id}}"><i class="material-icons">cloud_download</i></a>
       <a class="tooltipped" data-position="right" data-tooltip="Edit" href="/user/getRecipe/{{this.id}}"><i class="material-icons">edit</i></a>
       <a class="tooltipped" data-id="{{this.id}}" data-position="right" data-tooltip="Delete" href="#" onclick="deleteRecipe({{this.id}})"><i class="material-icons">delete_forever</i></a>
-      <a id="menu" class="tooltipped modal-trigger" data-position="right" data-tooltip="View" href="#modal1"><i class="material-icons">view_headline</i></a>
+      <a id="menu" class="tooltipped modal-trigger" data-position="right" data-tooltip="View" href="#modal{{@index}}"><i class="material-icons">view_headline</i></a>
       <a class="tooltipped" data-position="right" data-tooltip="Share" href="#" onclick="shareRecipe({{this.id}})"><i class="material-icons">share</i></a>
     </div>
   </div>
 </div>
   <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
+  <div id="modal{{@index}}" class="modal bottom-sheet">
     <div class="modal-content">
       <h5><u><i>Instructions</i></u></h5>
       <p>{{this.recipe_html}}</p>
