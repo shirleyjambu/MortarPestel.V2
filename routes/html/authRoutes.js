@@ -31,7 +31,7 @@ router.get("/getCategory",adminController.getAllCategory);
 
 router.get("/getUser",adminController.getAllUser);
 
-router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
+router.get("/shareRecipe/:email/:recipe_id",userController.shareRecipe);
 
 router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
 

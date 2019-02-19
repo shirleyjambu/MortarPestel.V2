@@ -151,71 +151,72 @@ module.exports = {
     }
   },
   getAllRecipes: (req, res) => {
-    console.log("Retrieving Recipes");
-    let rArray = [];
+   console.log("Retrieving Recipes");
+   let rArray = [];
 
-    /*db.Access.findAll({
-      where :{userId:req.user.id}
-    })
-    .then(data => {
-      data.forEach(d=>rArray.push(d.recipeId));
-    })
-    .catch(err=>console.log('Error Accessing'));*/
-
-    
-    db.Recipe.findAll({
-        include: [{
-          model: db.Ingredients
-        }],
-        where: {
-          $or:[{UserId: req.user.id},{
-            id: {
-                  $in: rArray
-                }
-            }]
-        }
-      })
-      .then((dbRecipes) => {
-
-        // getMeasurements from DB
-        db.Measurements.findAll({})
-          .then((dbData) => {
-            let mObj = {};
-
-            dbData.forEach(m => {
-              let id = m.id;
-              let name = m.measurement_name;
-              mObj[id] = name;
-            });
-
-            dbRecipes.forEach(r => {
-              let iArr = r.Ingredients;
-              iArr.forEach((i) => {
-                let im = i.ingredient_measurement;
-                //Set Value to measurement
-                i.ingredient_measurement = mObj[im];
-              })
-            })
-
-            //console.log(dbRecipes);
-            console.log('Recipe sent back to browser');
-            res.render("userRecipes", {
-              layout: 'user',
-              recipeData: dbRecipes
-            });
-          })
-          .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-          });
+   /*db.Access.findAll({
+     where :{userId:req.user.id}
+   })
+   .then(data => {
+     data.forEach(d=>rArray.push(d.recipeId));
+   })
+   .catch(err=>console.log('Error Accessing'));*/
 
 
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  },
+   db.Recipe.findAll({
+       include: [{
+         model: db.Ingredients
+       }],
+       where: {
+         $or:[{UserId: req.user.id},{
+           id: {
+                 $in: rArray
+               }
+           }]
+       }
+     })
+     .then((dbRecipes) => {
+
+       // getMeasurements from DB
+       db.Measurements.findAll({})
+         .then((dbData) => {
+           let mObj = {};
+
+           dbData.forEach(m => {
+             let id = m.id;
+             let name = m.measurement_name;
+             mObj[id] = name;
+           });
+
+           dbRecipes.forEach(r => {
+             let iArr = r.Ingredients;
+             iArr.forEach((i) => {
+               let im = i.ingredient_measurement;
+               //Set Value to measurement
+               i.ingredient_measurement = mObj[im];
+             })
+           })
+
+           //console.log(dbRecipes);
+           console.log('Recipe sent back to browser');
+           res.render("userRecipes", {
+             layout: 'user',
+             recipeData: dbRecipes
+           });
+         })
+         .catch(err => {
+           console.log(err);
+           res.status(500).json(err);
+         });
+
+
+     })
+     .catch(err => {
+       console.log(err);
+       res.status(500).json(err);
+     })
+    },
+  
   getRecipeById: (req, res) => {
     let recipe_id = req.params.recipe_id;
 
@@ -225,21 +226,6 @@ module.exports = {
       }]
     })
   },
-
-  shareRecipe: (req, res) => {
-    let recipe_id = req.params.recipe_id;
-    let user_id = req.params.user_id;
-
-    // add a record to the access table 
-    db.Access.create({
-        userId: user_id,
-        recipeId: recipe_id
-      })
-      .then()
-      .catch();
-
-  },
-
   deleteRecipe: (req, res) => {
     db.Recipe.destroy({
         where: {
