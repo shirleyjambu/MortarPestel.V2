@@ -10,12 +10,35 @@ $.ajax(
 });
 };
 
+const getCategory = () => {
+  $.ajax(
+  {url : "/user/getCategory",
+    type : 'GET'}
+  ).then((data) =>{
+     createCategoryOptionTable(data);
+  });
+  };
 
+const createCategoryOptionTable = (data) =>{
+
+  data.forEach(item => {
+    
+    let txt = item.categories_name;
+    let id = item.id;
+    var $newOpt = $("<option>").attr("value",id).text(txt)
+    $("#categoryDropdown").append($newOpt);
+
+    // fire custom event anytime you've updated select
+    $("#categoryDropdown").trigger('contentChanged');
+  });
+}
+  
 const createCuisineOptionTable = (data) =>{
 
   data.forEach(item => {
     let txt = item.cuisine_name;
-    var $newOpt = $("<option>").attr("value",'1').text(txt)
+    let id = item.id;
+    var $newOpt = $("<option>").attr("value",id).text(txt)
     $("#cuisineDropdown").append($newOpt);
 
     // fire custom event anytime you've updated select
@@ -28,11 +51,10 @@ const createMeasurementOption =(id) =>{
     {url : "/user/getMeasurements",
       type : 'GET'}
     ).then((data) =>{
-      alert('to loop');
-      data.forEach(item => {
-        
+        data.forEach(item => {
+        let itemId = item.id;
         let txt = item.measurement_name;
-        var $newOpt = $("<option>").attr("value",'1').text(txt)
+        var $newOpt = $("<option>").attr("value",itemId).text(txt)
         $("#measurementDropdown"+id).append($newOpt);
     
         // fire custom event anytime you've updated select
@@ -53,15 +75,15 @@ const addIngredientsRow =() =>{
   let $tdIng = $("<td>");
   $tdIng.html(`<div class="input-field">
   <i class="material-icons prefix">account_circle</i>
-  <input id="ingredient_name" name="ingredient_name" type="text" class="validate">
-  <label for="ingredient_name">Ingredients</label>
+  <input id="ingredient_name${ingCounter}" name="ingredient_name${ingCounter}" type="text" class="validate">
+  <label for="ingredient_name${ingCounter}">Ingredients</label>
   </div>`);
 
   let $tdQuan = $("<td>");
   $tdQuan.html(`<div class="input-field">
   <i class="material-icons prefix">phone</i>
-  <input id="ingredient_quantity" name="ingredient_quantity" type="text" class="validate">
-  <label for="ingredient_quantity">Quantity</label>
+  <input id="ingredient_quantity${ingCounter}" name="ingredient_quantity${ingCounter}" type="text" class="validate">
+  <label for="ingredient_quantity${ingCounter}">Quantity</label>
   </div>`);
 
   
@@ -88,6 +110,7 @@ $(document).ready(function(){
   $('select').addClass('browser-default');
   $('select').formSelect();
   $('.materialSelect').formSelect();
+  $('.tooltipped').tooltip();
   
   // setup listener for custom event to re-initialize on change
   $('.materialSelect').on('contentChanged', function() {
@@ -96,6 +119,7 @@ $(document).ready(function(){
 
   //getMeasurements();  
   getCuisine();
+  getCategory();
   addIngredientsRow();
 
   // Event handler for add Ingredient Row
@@ -133,15 +157,20 @@ $(document).ready(function(){
     //console.log(justHtml);
 
     /* End code for quill */
-    let newIngredient=[{
-      ingredient_name: $("#ingredient_name").val(),
-      ingredient_quantity: $("#ingredient_quantity").val(),
-      ingredient_measurement: $("#measurementType").val()
-    },{
-      ingredient_name: $("#ingredient_name").val(),
-      ingredient_quantity: $("#ingredient_quantity").val(),
-      ingredient_measurement: $("#measurementType").val()
-    }];
+
+    //Get all ingredients
+    let ingItems = $(".ingRow").length;
+    
+    let newIngredient=[];
+
+    for(let i=1; i<=ingItems; i++){
+      let obj = {
+        ingredient_name: $("#ingredient_name"+i).val(),
+        ingredient_quantity: $("#ingredient_quantity"+i).val(),
+        ingredient_measurement: $("#measurementDropdown"+i).val()
+      }
+      newIngredient.push(obj);
+    }
 
     console.log('--------------INGREDENT-----------------------')
     console.log(newIngredient);
@@ -149,6 +178,8 @@ $(document).ready(function(){
     // create formData object (needed for sending image)
     const form = new FormData();
     form.append('recipe_name', $("#recipe_name").val().trim());
+    form.append('cuisine_type',$("#cuisineDropdown option:selected").val());
+    form.append('category_type',$("#categoryDropdown option:selected").val());
     form.append('recipe_instruction', JSON.stringify(content));
     form.append('recipe_html', justHtml);
     form.append('ingredient_list', JSON.stringify(newIngredient));

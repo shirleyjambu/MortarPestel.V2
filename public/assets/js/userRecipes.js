@@ -33,6 +33,7 @@ function deleteRecipe(id) {
 
 
 function shareRecipe(recipeId) {
+  alert("recipeId :" + recipeId);
   Swal.fire({
     title: 'Enter the email id?',
     input: 'text',
@@ -76,36 +77,7 @@ function shareRecipe(recipeId) {
   })
 };
 
-const saveMeasurements = (data) =>{
-  let mObj = {};
-  
-  data.forEach(m => {
-    let id = m.id;
-    let name = m.measurement_name;
-    mObj[id] = name;
-  });
-
-  return mObj;
-};
-
-const setMeasurementNames=()=>{
-  $.ajax(
-    {url : "/user/getMeasurements",
-      type : 'GET'}
-    ).then((data) =>{
-      let gMeasurements = saveMeasurements(data);
-      console.log(gMeasurements);
-      $(".mId").each(function( index ) {
-        
-        /*let id= $(this).text;
-        alert(id);
-        $(this).text(gMeasurements[id]);*/
-        $(this).text('Cups');
-      });
-    });
-}
-
 $(document).ready(function () {
   $('.tooltipped').tooltip();
-  setMeasurementNames();
+  $('#modal1').modal();
 });

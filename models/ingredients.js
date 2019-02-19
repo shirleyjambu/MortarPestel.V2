@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
      allowNull: false
    },
    ingredient_measurement:{
-     type: DataTypes.STRING,
+     type: DataTypes.INTEGER,
      allowNull:false
    }
  });
@@ -31,6 +31,10 @@ Ingredients.associate = function(models) {
     through:'RecipeIngredients',
     foreignKey : 'RecipeId'
     })
+  /*Ingredients.belongsTo(models.Measurements, {
+    through:'IngredientMeasurements',
+    foreignKey : 'ingredient_measurement'
+    })  */
 };
 
 return Ingredients;

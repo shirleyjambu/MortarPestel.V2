@@ -49,13 +49,21 @@ router
     validateMiddleware.validateRecipe,
     recipeController.addRecipe);
 
+
+  router
+  .route('/editRecipe/:id?')
+  .post(
+      cloudinaryMiddleware,
+      validateMiddleware.validateRecipe,
+      recipeController.updateRecipe
+    );    
+  
+
 router
   .route('/getPDF/:recipe_id')
   .get(pdfController.getPDF);    
 
-  router
-  .route('/shareRecipe/:recipe_id/:user_id')
-  .get(recipeController.shareRecipe);   
+   
   
 
   

@@ -10,7 +10,8 @@ module.exports.validateNewUser = [
   check('last_name').isLength({ min: 3 }).withMessage('LastName should be at least 8 characters.'),
   check('email').isEmail().withMessage('Email not valid.'),
   check('password').isLength({ min: 8 }).withMessage('Password should be at least 8 characters.'),
-  check('password').not().equals('passwordconfirm').withMessage('Passwords must match.')
+  
+  
 ];
 
 module.exports.validateItems = [
