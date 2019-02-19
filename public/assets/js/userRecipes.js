@@ -33,8 +33,7 @@ function deleteRecipe(id) {
 
 
 function shareRecipe(recipeId) {
-  alert("recipeId :" + recipeId);
-  Swal.fire({
+    Swal.fire({
     title: 'Enter the email id?',
     input: 'text',
     inputAttributes: {
@@ -79,5 +78,8 @@ function shareRecipe(recipeId) {
 
 $(document).ready(function () {
   $('.tooltipped').tooltip();
-  $('#modal1').modal();
+  for(let i=0;i<$('.modal-trigger').length; i++){
+    $('#modal'+i).modal();
+  }
+  
 });

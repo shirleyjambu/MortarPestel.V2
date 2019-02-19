@@ -74,14 +74,14 @@ const addIngredientsRow =() =>{
   let $tr = $("<tr>").addClass("ingRow");
   let $tdIng = $("<td>");
   $tdIng.html(`<div class="input-field">
-  <i class="material-icons prefix">account_circle</i>
+  <i class="material-icons prefix">local_dining</i>
   <input id="ingredient_name${ingCounter}" name="ingredient_name${ingCounter}" type="text" class="validate">
   <label for="ingredient_name${ingCounter}">Ingredients</label>
   </div>`);
 
   let $tdQuan = $("<td>");
   $tdQuan.html(`<div class="input-field">
-  <i class="material-icons prefix">phone</i>
+  <i class="material-icons prefix">local_drink</i>
   <input id="ingredient_quantity${ingCounter}" name="ingredient_quantity${ingCounter}" type="text" class="validate">
   <label for="ingredient_quantity${ingCounter}">Quantity</label>
   </div>`);
