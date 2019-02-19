@@ -12,9 +12,8 @@ router.get("/userlanding", function(req, res){
   res.render("userMain",{layout:'user'});
 });
 
-router.get("/userRecipes",recipeController.getAllRecipes);
-
-
+router.route("/userRecipes")
+  .get(recipeController.getAllRecipes);
 
 router.get("/addRecipe", function(req, res){
   res.render("addRecipe",{layout:'user'});
@@ -35,5 +34,7 @@ router.get("/getUser",adminController.getAllUser);
 router.get("/shareRecipe/:email/:recipeId",userController.shareRecipe);
 
 router.get("/deleteRecipe/:id",recipeController.deleteRecipe);
+
+router.get("/getRecipe/:recipe_id",recipeController.getRecipeToEdit);
 
 module.exports = router;
