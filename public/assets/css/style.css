@@ -28,7 +28,7 @@ h1 {
   background-image: url("../images/boardbackground.jpg");
   background-size: 100%;
   color: black;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 #errorMsg {
@@ -51,16 +51,16 @@ h1 {
 } */
 
 #allergiesSpan {
-  color: rgb(107, 247, 65);
-  text-shadow: 2px 3px 3px black;
+  color: rgb(10, 175, 59);
+  text-shadow: 2px 3px 3px rgba(61, 59, 59, 0.651);
   font-size: 17px;
 
   
 }
 
 #dietSpan {
-  color: rgb(107, 247, 65);
-  text-shadow: 2px 3px 3px black;
+  color: rgb(10, 175, 59);
+  text-shadow: 2px 3px 3px rgba(61, 59, 59, 0.651);
   font-size: 17px;
   
 }
@@ -72,11 +72,12 @@ h1 {
 
 .chip a {
   color: rgb(12, 11, 11);
- 
+ }
+::placeholder {
+  color: rgb(37, 36, 36);
   
-
 }
-/*
+ /*
 #welDiv {
   width: 100%;
   height: 170px;
@@ -92,11 +93,15 @@ h1 {
 }*/
 
 #welBody {
-background-image: url("../images/tomato.jpg");
+background-image: url("../images/dark-blur.jpg");
 background-size: 100%;
 }
-
-
+#quickBack {
+  background: #FFFFFF;
+  background: -moz-linear-gradient(left, #FFFFFF 0%, #626566 51%, #FFFFFF 100%);
+  background: -webkit-linear-gradient(left, #FFFFFF 0%, #626566 51%, #FFFFFF 100%);
+  background: linear-gradient(to right, #FFFFFF 0%, #626566 51%, #FFFFFF 100%);
+}
 
 /* Recipes */
 .card-action-right {
@@ -104,7 +109,7 @@ background-size: 100%;
 }
 
 .card__date {
-  background: rgb(237, 239, 240);
+  background: rgb(35, 169, 236);
   position: absolute;
   top: 20px;
   right: 20px;
@@ -195,7 +200,7 @@ main {
 }
 
 .favIcon {
-  color: red;
+  color: rgb(32, 138, 18);
 }
 
 h1 {
@@ -205,12 +210,12 @@ h1 {
 }
 
 #pref {
-  background-color: rgba(216, 15, 15, 0.61);
+  background-color: rgba(27, 206, 57, 0.61);
 
 }
 
 .collapsible-header {
- background-color: red;
+ background-color: rgb(248, 244, 244);
 }
 
 #prefBar {
@@ -218,7 +223,7 @@ h1 {
   background-size: 180%;
   color: rgb(85, 83, 83);
   font-weight: 500;
-  text-shadow: 2px 3px 3px rgba(90, 86, 86, 0.432);
+  text-shadow: 2px 3px 3px rgba(10, 10, 10, 0.555);
   font-size: 20px;
 }
 /*
@@ -285,7 +290,7 @@ footer {
   margin-top: 12px;
   margin-bottom: 12px;
   -webkit-box-flex-group: inherit;
-  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  box-shadow: 3px 3px 10px 3px rgb(36, 35, 35);
   -webkit-border-radius: 9px;
   border-radius: 9px;
  
@@ -294,7 +299,7 @@ footer {
 #trendCard {
   /* background-image: url("../images/boardbackground.jpg");
    background-size: 400%;*/
-  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  box-shadow: 3px 3px 10px 3px rgb(17, 17, 17);
   background: #FFFFFF;
   background: -moz-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
   background: -webkit-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
@@ -310,16 +315,16 @@ footer {
   background-size: 500%;
 }
 #searchMain {
-  color: rgb(196, 193, 193);
+  color: rgb(221, 214, 214);
   font-weight: bolder;
   text-shadow: 2px 3px 3px black;
   font-size: 20px;
   
 }
 #searchMain1 {
-  color: rgb(5, 5, 5);
+  color: rgb(206, 205, 205);
   font-weight: bolder;
-  text-shadow: 2px 3px 3px rgba(190, 186, 186, 0.671);
+  text-shadow: 2px 3px 3px rgba(26, 25, 25, 0.671);
 }
 #userNavPic {
   background-size: 100%;
@@ -327,13 +332,13 @@ footer {
 }
 #recipeContainer {
   background-color: rgba(255, 255, 255, 0.904);
-  box-shadow: 3px 3px 10px 3px rgb(131, 127, 127);
+  box-shadow: 3px 3px 10px 3px rgb(26, 25, 25);
   -webkit-border-radius: 9px;
   border-radius: 9px;
   color: black;
 }
 #addNewText {
-  color: rgb(184, 181, 181);
+  color: rgb(10, 175, 59);
   font-weight: 500;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
@@ -341,25 +346,25 @@ footer {
   word-spacing: -1.2px;
  margin-left: 70px;
   font-size: 20px;
-  text-shadow: 2px 3px 3px rgba(46, 45, 45, 0.664);
+  text-shadow: 2px 3px 3px rgba(99, 96, 96, 0.664);
 }
 #quillBar {
   background-color: rgba(255, 255, 255, 0.904);
   color: rgb(241, 240, 240);
-  box-shadow: 3px 3px 10px 3px rgb(122, 119, 119);
+  box-shadow: 3px 3px 10px 3px rgb(31, 30, 30);
   -webkit-border-radius: 9px;
   border-radius: 9px;
 }
 #prefModal {
-  box-shadow: 3px 3px 10px 3px rgb(131, 126, 126);
+  box-shadow: 3px 3px 10px 3px rgb(15, 15, 15);
   background: #FFFFFF;
-  background: -moz-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #CACACA 100%);
-  background: -webkit-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #CACACA 100%);
-  background: linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #CACACA 100%);
-  color:black;
+  background: -moz-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: -webkit-linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  background: linear-gradient(45deg, #FFFFFF 0%, #E8E8E8 51%, #999999 100%);
+  color:rgb(102, 99, 99);
 }
 #sideNavIcon {
-  color: rgb(241, 11, 11);
+  color: rgb(10, 175, 59);
   font-weight: bolder;
   margin-top: 15px;
   margin-left: 15px;
@@ -369,7 +374,11 @@ footer {
   background-size: 180%;
 }
 #adminCard{
-  background-color: rgba(73, 70, 70, 0.63)
+  box-shadow: 3px 3px 10px 3px rgb(15, 15, 15);
+  background: #F7F7F7;
+  background: -moz-linear-gradient(-45deg, #F7F7F7 0%, #BFC5C7 54%, #F2F2F2 100%);
+  background: -webkit-linear-gradient(-45deg, #F7F7F7 0%, #BFC5C7 54%, #F2F2F2 100%);
+  background: linear-gradient(135deg, #F7F7F7 0%, #BFC5C7 54%, #F2F2F2 100%);
 }
 #ingredientTable {
   color: rgb(22, 21, 21);
@@ -387,4 +396,9 @@ footer {
   color: rgb(5, 5, 5);
   font-weight: 600;
   text-shadow: 2px 3px 3px rgba(190, 186, 186, 0.671);
+}
+#recipeClick {
+  color:rgb(9, 111, 245);
+  font-weight: 600;
+  text-shadow: 2px 3px 3px rgba(207, 203, 203, 0.404);
 }
