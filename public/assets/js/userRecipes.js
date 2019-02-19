@@ -33,6 +33,7 @@ function deleteRecipe(id) {
 
 
 function shareRecipe(recipeId) {
+  alert("recipeId :" + recipeId);
   Swal.fire({
     title: 'Enter the email id?',
     input: 'text',

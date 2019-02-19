@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator/check');
 var db = require("./../models");
-const shareController = require("./shareController");
+const recipeController = require("./recipeController");
 
 const emptyObj =(obj) => {
   for(var key in obj) {
@@ -96,12 +96,23 @@ module.exports = {
       .then( (dbUsers) => {
         console.log("Found DB User");
         console.log(dbUsers.id);
-        console.log(req.params.recipeId);
-        // if (dbUsers){
-        //     accessController.create(); 
-        // }
-        // insert the id of the recipe and user id of the shared user into the table .req.params.recipeId 
-          res.send(dbUsers);
+        console.log(req.params.recipe_id);
+
+        let recipe_id = req.params.recipe_id;
+        let user_id = dbUsers.id;
+        
+        if (dbUsers){
+          db.Shares.create({
+            userId: user_id,
+            recipeId: recipe_id
+          }).then(function(dbData) {
+            console.log('Shared Successfully.');
+          })
+            .catch(function(err) {
+              console.log('Error in Sharing');
+            });   
+         }
+         res.send(dbUsers);
         }
       )
       .catch((err) => {

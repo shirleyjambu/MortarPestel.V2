@@ -1,17 +1,20 @@
-const db = require("../models");
+/*const db = require("../models");
+
+module.exports = {
+  createShare : (req, res) =>{
+    db.Shares.create({
+      userId: req.params.userId,
+      recipeId: req.params.recipeId
+    }).then(function(dbData) {
+      console.log('Shared Successfully.');
+      res.json(post);
+    })
+      .catch(function(err) {
+        console.log('Error in Sharing');
+        res.json(err);
+      }); 
+  }
+}*/
+  
 
 
-module.exports = function(app) {
-app.post("/assets", function(req, res) {
-
-  db.Shares.create({
-    userId: req.body.userId,
-    recipeId: req.body.recipeId
-  }).then(function(dbData) {
-    res.json(post);
-  })
-    .catch(function(err) {
-      res.json(err);
-    });
-});
-};
