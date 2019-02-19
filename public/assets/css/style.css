@@ -325,6 +325,16 @@ footer {
   background-size: 180%;
   font-weight: 600;
   margin-top: 15px;
+  margin-left:275px;
+  margin-left:400px;
+}
+
+#saveRecipe{
+  background-image: url("../images/boardbackground.jpg");
+  background-size: 180%;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-left:400px;
 }
 
 #adminCard {
@@ -367,3 +377,4 @@ footer {
   font-weight: 600;
   text-shadow: 2px 3px 3px rgba(207, 203, 203, 0.404);
 }
+
